@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal } from "../context/Modal";
+import NewEmployeeForm from "./NewEmployeeForm";
 
 const NewEmployeeModal = () => {
   const [ showModal, setShowModal ] = useState(false)
@@ -13,7 +14,7 @@ const NewEmployeeModal = () => {
       <button onClick={handleClick}>Click me</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <p>hello from inside</p>
+          <NewEmployeeForm />
         </Modal>
       )}
     </div>
