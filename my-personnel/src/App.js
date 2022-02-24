@@ -1,23 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import Employees from './components/Employees';
 import './App.css';
 
 function App() {
-  const [message, setMessage] = useState('')
-
-
-  useEffect(() => {
-    const backendFetch = async () => {
-      const res = await fetch('/api/')
-      const data = await res.json();
-      setMessage(data)
-    }
-    backendFetch();
-  })
 
   return (
     <div className="App">
-      <p>My Personnel App</p>
-      <p>{message}</p>
+      <h1>My Personnel App</h1>
+      <Employees />
     </div>
   );
 }
