@@ -1,24 +1,18 @@
-import React, { useEffect, useState } from "react";
-import Employee from "./Employee";
+import React from "react";
+import EmployeeLink from "./EmployeeLink";
+import ControlPanel from "./ControlPanel";
+// import { EmployeeContext } from "../context/EmployeeContext";
 
-const Employees = () => {
-  const [employees, setEmployees] = useState([]);
+const Employees = ({employees}) => {
 
-  useEffect(() => {
-    const backendFetch = async () => {
-      const res = await fetch("/api/");
-      const data = await res.json();
-      setEmployees(data);
-    };
-    backendFetch();
-  });
-
+  // const employees = useContext(EmployeeContext);
   return (
     <>
       <h2>All Employees:</h2>
+      <ControlPanel />
       {employees &&
-        employees.map((employee) => (
-        <Employee
+        Object.values(employees).map((employee) => (
+        <EmployeeLink
           key={employee._id}
           employee={employee}
         />
