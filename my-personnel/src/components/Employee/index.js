@@ -43,8 +43,8 @@ const Employee = ({ employees, setEmployees }) => {
           </div>
         </div>
         <div className="basis-2/3 pl-8">
-          <Corporate employee={employee} />
-          <Address employee={employee} />
+          <Corporate employee={employee} employees={employees} setEmployees={setEmployees}/>
+          <Address employee={employee} employees={employees} setEmployees={setEmployees}/>
           <Contact employee={employee} employees={employees} setEmployees={setEmployees}/>
         </div>
       </div>

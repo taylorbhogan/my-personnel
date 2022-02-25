@@ -84,7 +84,12 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl">Create a New Employee Record</h1>
-      <button onClick={() => setShowModal(false)} className="absolute top-0 right-0 m-4"><GrClose/></button>
+      <button
+        onClick={() => setShowModal(false)}
+        className="absolute top-0 right-0 m-4"
+      >
+        <GrClose />
+      </button>
       <div className="mt-4 bg-sky-100 rounded-lg p-4">
         <h2>Personal Info</h2>
         <div>

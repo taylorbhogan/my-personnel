@@ -37,8 +37,9 @@ router.get("/:id", async (req, res) => {
 router.patch("/:id", async (req, res) => {
   const id = req.params.id;
   const newEmployeeData = req.body;
-  const { email, phone } = newEmployeeData;
+  const { email, phone, address } = newEmployeeData;
   const { personal, corporate } = phone;
+  const { street1, street2, city, state, zip, country } = address;
 
   const mongoResponse = await employeeModel.findOneAndUpdate(
     { _id: id },
@@ -47,6 +48,14 @@ router.patch("/:id", async (req, res) => {
       phone: {
         personal,
         corporate,
+      },
+      address: {
+        street1,
+        street2,
+        city,
+        state,
+        zip,
+        country,
       },
     },
     { new: true }

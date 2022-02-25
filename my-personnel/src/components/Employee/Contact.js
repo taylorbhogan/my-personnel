@@ -44,35 +44,47 @@ const Contact = ({ employee, employees, setEmployees }) => {
         <form className="flex items-center" onSubmit={handleSubmit}>
           <div className="flex basis-5/6">
             <div className="flex flex-col">
-              <Input
-                type={"text"}
-                value={phonePersonal}
-                placeholder={"phonePersonal placeholder"}
-                ariaLabel={"phonePersonal placeholder"}
-                onChange={(e) => setPhone1(e.target.value)}
-                required={true}
-              />
-              <Input
-                type={"text"}
-                value={phoneCorporate}
-                placeholder={"phoneCorporate placeholder"}
-                ariaLabel={"phoneCorporate placeholder"}
-                onChange={(e) => setPhone2(e.target.value)}
-                required={true}
-              />
+              <label>
+                <span>Personal Phone:</span>
+                <Input
+                  type={"text"}
+                  value={phonePersonal}
+                  placeholder={"phonePersonal placeholder"}
+                  ariaLabel={"phonePersonal placeholder"}
+                  onChange={(e) => setPhone1(e.target.value)}
+                  required={true}
+                />
+              </label>
+              <label>
+                <span>Corporate Phone: </span>
+                <Input
+                  type={"text"}
+                  value={phoneCorporate}
+                  placeholder={"phoneCorporate placeholder"}
+                  ariaLabel={"phoneCorporate placeholder"}
+                  onChange={(e) => setPhone2(e.target.value)}
+                  required={true}
+                />
+              </label>
             </div>
-            <Input
-              type={"text"}
-              value={email}
-              placeholder={"email placeholder"}
-              ariaLabel={"email placeholder"}
-              onChange={(e) => setEmail(e.target.value)}
-              required={true}
-            />
+            <label>
+              <span>Email: </span>
+              <Input
+                type={"text"}
+                value={email}
+                placeholder={"email placeholder"}
+                ariaLabel={"email placeholder"}
+                onChange={(e) => setEmail(e.target.value)}
+                required={true}
+              />
+            </label>
           </div>
-          <div className="basis-1/6">
+          <div className="flex flex-col basis-1/6">
             <button
-              className="border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white"
+              className="border-2 rounded-lg px-3 py-1 border-slate-500 hover:bg-slate-500 hover:text-white"
+            onClick={() => setIsEditable(false)}>Close</button>
+            <button
+              className="border-2 rounded-lg px-3 py-1 mt-3 border-sky-500 hover:bg-sky-500 hover:text-white"
               type="submit"
             >
               Save
