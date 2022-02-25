@@ -5,7 +5,6 @@ import Address from "./Address";
 import LoadingContent from "../LoadingContent";
 import Contact from "./Contact";
 import Corporate from "./Corporate";
-import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
 import ButtonEmployeeDelete from "../Forms/ButtonEmployeeDelete";
 
 const Employee = ({ employees, setEmployees }) => {
@@ -35,8 +34,7 @@ const Employee = ({ employees, setEmployees }) => {
             src={employee.imgUrl}
             alt="professional headshot of this employee"
           />
-          <div className="flex justify-around m-6 w-full">
-            <ButtonEmployeeEdit />
+          <div className="m-6">
             <ButtonEmployeeDelete
               setEmployees={setEmployees}
               id={employee._id}
