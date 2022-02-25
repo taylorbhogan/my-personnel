@@ -1,5 +1,5 @@
 const { faker } = require("@faker-js/faker");
-const employeeModel = require("../../models/employee");
+// const employeeModel = require("../models/employee");
 
 const seedEmployeeData = async () => {
   const fakeFirstName = faker.name.firstName();
@@ -58,15 +58,15 @@ const seedEmployeeData = async () => {
     imgUrl: faker.image.avatar(),
     directSupervisor: "6218213f4c061098e3013074",
   };
-  const newEmployee = new employeeModel(employee)
-  console.log(newEmployee);
-  try {
-    const mongoResponse = await newEmployee.save()
-    console.log(mongoResponse);
+  // const newEmployee = new employeeModel(employee)
+  console.log(employee);
+  // try {
+  //   const mongoResponse = await newEmployee.save()
+  //   console.log(mongoResponse);
 
-  } catch (error) {
-    console.log(error);
-  }
+  // } catch (error) {
+  //   console.log(error);
+  // }
 
 };
 seedEmployeeData();
