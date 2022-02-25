@@ -48,43 +48,42 @@ const Corporate = ({ employee, employees, setEmployees }) => {
     <div className="">
       {isEditable ? (
         <form className="flex" onSubmit={handleSubmit}>
-          <div className="basis-5/6">
-            <div>
-              <label>
-                <span>First Name: </span>
-                <Input
-                  type={"text"}
-                  value={firstName}
-                  placeholder={"First Name"}
-                  ariaLabel={"First Name"}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  required={true}
-                  autoFocus={true}
-                />
-              </label>
-              <label>
-                <span>Middle Name: </span>
-                <Input
-                  type={"text"}
-                  value={middleName}
-                  placeholder={"Middle Name"}
-                  ariaLabel={"Middle Name"}
-                  onChange={(e) => setMiddleName(e.target.value)}
-                  required={true}
-                />
-              </label>
-              <label>
-                <span>Last Name: </span>
-                <Input
-                  type={"text"}
-                  value={lastName}
-                  placeholder={"Last Name"}
-                  ariaLabel={"Last Name"}
-                  onChange={(e) => setLastName(e.target.value)}
-                  required={true}
-                />
-              </label>
-            </div>
+          <div className="flex flex-col basis-5/6">
+            <label>
+              <span>First Name: </span>
+              <Input
+                type={"text"}
+                value={firstName}
+                placeholder={"First Name"}
+                ariaLabel={"First Name"}
+                onChange={(e) => setFirstName(e.target.value)}
+                required={true}
+                autoFocus={true}
+              />
+            </label>
+            <label>
+              <span>Middle Name: </span>
+              <Input
+                type={"text"}
+                value={middleName}
+                placeholder={"Middle Name"}
+                ariaLabel={"Middle Name"}
+                onChange={(e) => setMiddleName(e.target.value)}
+                required={true}
+              />
+            </label>
+            <label>
+              <span>Last Name: </span>
+              <Input
+                type={"text"}
+                value={lastName}
+                placeholder={"Last Name"}
+                ariaLabel={"Last Name"}
+                onChange={(e) => setLastName(e.target.value)}
+                required={true}
+              />
+            </label>
+
             <label>
               <span>Title: </span>
               <Input
@@ -133,7 +132,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
       ) : (
         <div className="flex">
           <div className="basis-5/6">
-            <h2 className="text-3xl">
+            <h2 className="text-3xl mb-4">
               {`${employee.name.first} ${employee.name.middle} ${employee.name.last}`}
             </h2>
             <p className="text-xl">{employee.title}</p>
