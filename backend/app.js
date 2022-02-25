@@ -2,7 +2,9 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const employeeModel = require("./models/employee");
+const departmentModel = require('./models/department')
 const app = express();
+const routes = require('./routes')
 
 const { environment } = require("./config");
 const isProduction = environment === "production";
@@ -14,24 +16,20 @@ if (!isProduction) {
   app.use(cors());
 }
 
-app.get("/api/", async (req, res) => {
-  const allEmployees = await employeeModel.find();
-  console.log("allEmployees", allEmployees);
-  res.json(allEmployees)
-});
+app.use(routes)
 
-app.get("/api/addEmployee", async (req, res) => {
-  const newEmployee = new employeeModel();
-  newEmployee.test = "big success";
+// app.get('/api/addDepartment', async (req, res) => {
+//   const department = { name: "marketing"}
+//   const newDepartment = new departmentModel(department)
 
-  try {
-    await newEmployee.save();
-  } catch (error) {
-    console.log("error:", error);
-  }
-
-  res.json("added new employee");
-});
+//   try {
+//     const mongoResponse = await newDepartment.save();
+//     res.json(mongoResponse)
+//   } catch (error) {
+//     console.log("error:",error);
+//     res.json(error)
+//   }
+// })
 
 // export app to be started by bin
 module.exports = app;
