@@ -11,21 +11,24 @@ const DropdownDepartment = ({ value, setFunction }) => {
     };
     fetchDepartments();
     return () => {
-      setDepartments('')
-    }
+      setDepartments("");
+    };
   }, []);
 
   return (
     <select
-    className="h-12 px-2"
-    onChange={(e) => setFunction(e.target.value)}
-    value={value}>
+      className="h-12 px-2"
+      onChange={(e) => setFunction(e.target.value)}
+      value={value}
+    >
       <option disabled={true} defaultValue={true}>
         -select department-
       </option>
       {departments &&
         departments.map((department, idx) => (
-          <option key={idx} value={department}>{department}</option>
+          <option key={idx} value={department}>
+            {department}
+          </option>
         ))}
     </select>
   );

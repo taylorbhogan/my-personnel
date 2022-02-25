@@ -82,7 +82,10 @@ const Contact = ({ employee, employees, setEmployees }) => {
           <div className="flex flex-col basis-1/6">
             <button
               className="border-2 rounded-lg px-3 py-1 border-slate-500 hover:bg-slate-500 hover:text-white"
-            onClick={() => setIsEditable(false)}>Close</button>
+              onClick={() => setIsEditable(false)}
+            >
+              Close
+            </button>
             <button
               className="border-2 rounded-lg px-3 py-1 mt-3 border-sky-500 hover:bg-sky-500 hover:text-white"
               type="submit"

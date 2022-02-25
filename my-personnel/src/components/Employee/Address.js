@@ -47,10 +47,7 @@ const Address = ({ employee, employees, setEmployees }) => {
     <div className="">
       <h3 className="text-2xl pb-3">Address</h3>
       {isEditable ? (
-        <form
-        onSubmit={handleSubmit}
-
-        className="flex">
+        <form onSubmit={handleSubmit} className="flex">
           <div className="flex flex-col basis-5/6">
             <label>
               <span>Street Address:</span>
