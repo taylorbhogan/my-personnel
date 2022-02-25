@@ -1,23 +1,24 @@
 import { useState } from "react";
 import Input from "./Input";
+import DropdownDepartment from "./DropdownDepartment";
 
 const NewEmployeeForm = () => {
-  const [firstName, setFirstName] = useState('')
-  const [middleName, setMiddleName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [title, setTitle] = useState('')
-  const [department, setDepartment] = useState('')
-  const [isAdmin, setIsAdmin] = useState(false)
-  const [phone, setPhone] = useState('')
-  const [email, setEmail] = useState('')
-  const [street1, setStreet1] = useState('')
-  const [street2, setStreet2] = useState('')
-  const [city, setCity] = useState('')
-  const [state, setState] = useState('')
-  const [zip, setZip] = useState('')
-  const [country, setCountry] = useState('')
-  const [pto, setPto] = useState(0)
-  const [taxDocument, setTaxDocument] = useState('')
+  const [firstName, setFirstName] = useState("");
+  const [middleName, setMiddleName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [title, setTitle] = useState("");
+  const [department, setDepartment] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [street1, setStreet1] = useState("");
+  const [street2, setStreet2] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
+  const [country, setCountry] = useState("");
+  const [pto, setPto] = useState(0);
+  const [taxDocument, setTaxDocument] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,24 +43,24 @@ const NewEmployeeForm = () => {
         country,
       },
       pto,
-      taxDocuments: [ taxDocument ],
+      taxDocuments: [taxDocument],
       directSupervisor: "6217ccd822a75a5caca18115",
-    }
+    };
 
-    const res = await fetch('/api/employees', {
+    const res = await fetch("/api/employees", {
       method: "POST",
       headers: {
-        'Content-Type': "application/json",
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(newEmployee)
-    })
-    if (res.ok){
+      body: JSON.stringify(newEmployee),
+    });
+    if (res.ok) {
       const newEmployeeData = await res.json();
-      console.log('newEmployeeData',newEmployeeData);
+      console.log("newEmployeeData", newEmployeeData);
     } else {
-      console.log('res',res);
+      console.log("res", res);
     }
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -144,13 +145,8 @@ const NewEmployeeForm = () => {
         onChange={(e) => setCountry(e.target.value)}
         required={true}
       />
-      <Input
-        type={"text"}
-        value={department}
-        placeholder={"department placeholder"}
-        ariaLabel={"department placeholder"}
-        onChange={(e) => setDepartment(e.target.value)}
-        required={true}
+      <DropdownDepartment
+        setFunction={(department) => setDepartment(department)}
       />
       <Input
         type={"text"}
@@ -189,11 +185,9 @@ const NewEmployeeForm = () => {
         onChange={(e) => setTaxDocument(e.target.value)}
         required={true}
       />
-      <button type="submit">
-        Submit
-      </button>
+      <button type="submit">Submit</button>
     </form>
-  )
-}
+  );
+};
 
 export default NewEmployeeForm;

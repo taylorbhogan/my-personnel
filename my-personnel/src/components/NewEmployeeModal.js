@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "../context/Modal";
-import NewEmployeeForm from "./NewEmployeeForm";
+import NewEmployeeForm from "./Forms/NewEmployeeForm";
 
 const NewEmployeeModal = () => {
   const [ showModal, setShowModal ] = useState(false)
