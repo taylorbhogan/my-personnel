@@ -4,6 +4,7 @@ import { BsHouseDoor, BsHouseDoorFill } from "react-icons/bs";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
 import LoadingContent from "./components/LoadingContent";
+import Home from "./components/Home";
 
 function App() {
   const [employees, setEmployees] = useState({});
@@ -37,12 +38,19 @@ function App() {
         <Routes>
           <Route
             exact
+            path="/"
+            element={<Home />}
+          ></Route>
+          <Route
+            exact
             path="/employees"
             element={<Employees employees={employees} />}
           ></Route>
           <Route
             path="/employees/:employeeId"
-            element={<Employee employees={employees} />}
+            element={
+              <Employee employees={employees} setEmployees={setEmployees} />
+            }
           ></Route>
         </Routes>
       </BrowserRouter>

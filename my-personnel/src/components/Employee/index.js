@@ -8,7 +8,7 @@ import Corporate from "./Corporate";
 import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
 import ButtonEmployeeDelete from "../Forms/ButtonEmployeeDelete";
 
-const Employee = ({ employees }) => {
+const Employee = ({ employees, setEmployees }) => {
   const [backHover, setBackHover] = useState(false);
 
   const { employeeId } = useParams();
@@ -37,7 +37,10 @@ const Employee = ({ employees }) => {
           />
           <div className="flex justify-around m-6 w-full">
             <ButtonEmployeeEdit />
-            <ButtonEmployeeDelete id={employee._id}/>
+            <ButtonEmployeeDelete
+              setEmployees={setEmployees}
+              id={employee._id}
+            />
           </div>
         </div>
         <div className="basis-2/3 pl-8">
