@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
+import { BsHouseDoor, BsHouseDoorFill } from "react-icons/bs";
 import "./App.css";
 
 function App() {
   const [employees, setEmployees] = useState({});
+  const [homeHover, setHomeHover] = useState(false);
 
   useEffect(() => {
     const fetchEmployees = async () => {
@@ -23,7 +25,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-4xl">My Personnel App</h1>
+      <a
+        href="/"
+        className="absolute top-0 left-0 m-6"
+        onMouseEnter={() => setHomeHover(true)}
+        onMouseLeave={() => setHomeHover(false)}
+        >
+        {homeHover ? <BsHouseDoorFill size={32} /> : <BsHouseDoor size={32} />}
+      </a>
       <BrowserRouter>
         <Routes>
           <Route

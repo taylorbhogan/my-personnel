@@ -11,7 +11,9 @@ const NewEmployeeModal = () => {
 
   return (
     <div>
-      <button onClick={handleClick}>Click me</button>
+      <button
+      className="border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white"
+      onClick={handleClick}>Add new employee</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <NewEmployeeForm />

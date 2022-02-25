@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { ModalProvider } from "./context/Modal";
-import "./index.css";
+import "./reset.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
