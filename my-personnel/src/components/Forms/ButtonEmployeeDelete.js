@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom';
 import { Modal } from "../../context/Modal";
 
 const ButtonEmployeeDelete = ({id}) => {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleOpen = () => {
     setShowModal(true);
@@ -17,6 +19,8 @@ const ButtonEmployeeDelete = ({id}) => {
     });
     if (res.ok) {
       const newEmployeeData = await res.json();
+      navigate('/employees')
+      setShowModal(false)
       console.log("newEmployeeData", newEmployeeData);
     } else {
       console.log("res", res);
