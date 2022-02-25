@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# MyPersonnel App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+Use this application to manage an employee database. You can easily view all employee records, view an individual employee record in greater detail, edit an employee record, or delete an employee record from your browser.
 
-In the project directory, you can run:
+The React frontend queries the backend Express server for the data necessary to render a user's chosen view, and manages UI via React Hooks, Tailwind CSS, and React Icons. The Express server uses the Mongoose ORM to query and manipulate data within the MongoDB database.
 
-### `npm start`
+## Technologies
+- React.js
+- Tailwind CSS
+- JavaScript
+- Express
+- MongoDB
+- Mongoose
+- React-Icons
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Developing
+What you’ll need on your machine:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js
 
-### `npm test`
+1. `git clone` this repo.
+2. `cd` into your local repo.
+3. `cd` into `backend` and run `npm install`.
+4. Create your own `.env` file based on the provided `.env.example`.
+5. Create a user and database in your MongoDB that matches your `.env` configuration.
+6. Run `npm start`.
+7. Open a second terminal.
+8. `cd` into `my-personnel`.
+9. Run `npm install`.
+10. Run `npm start`.
+11. Your app should open in your default browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## API documentation
 
-### `npm run build`
+`GET /api/employees` <br>
+Returns all employees
+- Stretch goal: implement pagination to reduce data size
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`POST /api/employees` <br>
+Returns the newly created employee object if the user has provided all of the information required to create a new employee account.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`PUT /api/employees/<int:employee_id>` <br>
+Returns the newly edited employee object if the user has provided all of the information required to create a new employee account.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`DELETE /api/employees/<int:employee_id>` <br>
+Returns all employees if the specified employee account was successfully deleted.
 
-### `npm run eject`
+## Frontend Routes
+`/` <br>
+Renders the home page
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`/employees` <br>
+Renders all employees
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`/employees/employee_id` <br>
+Renders the employee matching this id
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Database Schema
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Departments
 
-## Learn More
+- _id: (primaryKey) ObjectId
+- name: string
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Employees
+- _id: (primaryKey) ObjectId
+- corporateId: number
+- name:
+  - first: string
+  - second: string
+  - third: string
+- title: string
+- department: string
+- admin: boolean
+- phone:
+  - personal: string
+  - corporate: string
+- email: string
+- address:
+  - street1: string
+  - street2: string
+  - city: string
+  - state: string
+  - zip: string
+  - country: string
+- pto: number
+- taxDocuments: array
+- imgUrl: string,
+- directSupervisor: (foreignKey) ObjectId
