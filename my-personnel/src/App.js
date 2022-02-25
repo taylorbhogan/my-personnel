@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-xl">My Personnel App</h1>
+      <h1 className="text-4xl">My Personnel App</h1>
       <BrowserRouter>
         <Routes>
           <Route
