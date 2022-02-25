@@ -8,7 +8,20 @@ const ButtonEmployeeDelete = ({id}) => {
     setShowModal(true);
   };
 
-
+  const handleDelete = async () => {
+    const res = await fetch(`/api/employees/${id}`, {
+      method: "DELETE",
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+    });
+    if (res.ok) {
+      const newEmployeeData = await res.json();
+      console.log("newEmployeeData", newEmployeeData);
+    } else {
+      console.log("res", res);
+    }
+  }
 
   return (
     <>
@@ -20,7 +33,7 @@ const ButtonEmployeeDelete = ({id}) => {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          Hello
+          <button onClick={handleDelete}>button here i am</button>
         </Modal>
       )}
     </>
