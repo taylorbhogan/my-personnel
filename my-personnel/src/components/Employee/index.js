@@ -37,7 +37,7 @@ const Employee = ({ employees }) => {
           />
           <div className="flex justify-around m-6 w-full">
             <ButtonEmployeeEdit />
-            <ButtonEmployeeDelete />
+            <ButtonEmployeeDelete id={employee._id}/>
           </div>
         </div>
         <div className="basis-2/3 pl-8">

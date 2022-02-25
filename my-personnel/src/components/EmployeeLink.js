@@ -26,7 +26,7 @@ const EmployeeLink = ({ employee }) => {
       </div>
       <div className="basis-1/6 flex justify-around items-center">
         <ButtonEmployeeEdit />
-        <ButtonEmployeeDelete />
+        <ButtonEmployeeDelete id={employee._id}/>
       </div>
     </a>
   );
