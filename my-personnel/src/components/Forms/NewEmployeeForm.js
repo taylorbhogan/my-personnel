@@ -50,7 +50,7 @@ const NewEmployeeForm = () => {
       pto,
       taxDocuments: [taxDocument],
       imgUrl,
-      directSupervisor: "6217ccd822a75a5caca18115",
+      directSupervisor: "62183672fe76c4271819c360",
     };
 
     const res = await fetch("/api/employees", {
