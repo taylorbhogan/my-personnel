@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const DropdownDepartment = ({ setFunction }) => {
+const DropdownDepartment = ({ value, setFunction }) => {
   const [departments, setDepartments] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,10 @@ const DropdownDepartment = ({ setFunction }) => {
   }, []);
 
   return (
-    <select className="h-12 px-2" onChange={(e) => setFunction(e.target.value)}>
+    <select
+    className="h-12 px-2"
+    onChange={(e) => setFunction(e.target.value)}
+    value={value}>
       <option disabled={true} defaultValue={true}>
         -select department-
       </option>
