@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     const fetchEmployees = async () => {
       const employeeObject = {};
-      const res = await fetch("/api/");
+      const res = await fetch("/api/employees");
       const data = await res.json();
       data.forEach(employee => {
         employeeObject[employee._id] = employee;

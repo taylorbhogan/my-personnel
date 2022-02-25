@@ -16,7 +16,7 @@ const NewEmployeeForm = () => {
   const [state, setState] = useState('')
   const [zip, setZip] = useState('')
   const [country, setCountry] = useState('')
-  const [pto, setPto] = useState('')
+  const [pto, setPto] = useState(0)
   const [taxDocument, setTaxDocument] = useState('')
 
   const handleSubmit = async (e) => {
@@ -46,7 +46,7 @@ const NewEmployeeForm = () => {
       directSupervisor: "6217ccd822a75a5caca18115",
     }
 
-    const res = await fetch('/api/addEmployee', {
+    const res = await fetch('/api/employees', {
       method: "POST",
       headers: {
         'Content-Type': "application/json",
@@ -180,7 +180,7 @@ const NewEmployeeForm = () => {
         value={pto}
         placeholder={"pto placeholder"}
         aria-label={"pto placeholder"}
-        onChange={(e) => setPto(e.target.checked)}
+        onChange={(e) => setPto(e.target.value)}
       ></input>
       <Input
         type={"text"}
