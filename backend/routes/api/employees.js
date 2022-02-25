@@ -1,13 +1,15 @@
 const express = require("express");
-const faker = require('@faker-js/faker')
+const faker = require("@faker-js/faker");
 const router = express.Router();
-const employeeModel = require('../../models/employee')
+const employeeModel = require("../../models/employee");
 
+// GET - get all employee records from the db
 router.get("/", async (req, res) => {
   const allEmployees = await employeeModel.find();
   res.json(allEmployees);
 });
 
+// POST - add a new employee record to the db
 router.post("/", async (req, res) => {
   const employeeData = req.body;
   const newEmployee = new employeeModel(employeeData);
@@ -23,11 +25,47 @@ router.post("/", async (req, res) => {
   res.json("an unexpected error occurred");
 });
 
-// router.get("/:id", async (req, res) => {
-//   const id = req.params.id;
-//   const employee = await employeeModel.findOne({ _id: id });
-//   res.json(employee);
-// });
+// GET - get a record from the database for the employee with this id
+// note: this route is currently unused
+router.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  const employee = await employeeModel.findOne({ _id: id });
+  res.json(employee);
+});
+
+// PATCH - edit a single record in the database
+router.patch("/:id", async (req, res) => {
+  const newEmployeeData = req.body;
+  const { email } = newEmployeeData;
+  const id = req.params.id;
+  console.log(email, id);
+  const mongoResponse = await employeeModel.findOneAndUpdate(
+    { _id: id },
+    { email },
+    { new: true }
+  );
+  console.log("mongoRes:", mongoResponse);
+});
+
+// DELETE - remove a single record from the database
+router.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const mongoResponse = await employeeModel.deleteOne({ _id: id });
+    const { deletedCount } = mongoResponse;
+    if (deletedCount === 1) {
+      const allEmployees = await employeeModel.find();
+      res.json(allEmployees);
+    } else {
+      res.json(
+        "An unexpected error may have occurred while deleting from the database. Try refreshing the page."
+      );
+    }
+  } catch (error) {
+    console.log("error:", error);
+    res.json(error);
+  }
+});
 
 // router.get('/addRandom', async (req, res) => {
 //   const fakeFirstName = faker.name.firstName();
@@ -98,6 +136,5 @@ router.post("/", async (req, res) => {
 //   }
 
 // })
-
 
 module.exports = router;
