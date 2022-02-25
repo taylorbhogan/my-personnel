@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
 import { BsHouseDoor, BsHouseDoorFill } from "react-icons/bs";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
@@ -26,21 +26,21 @@ function App() {
 
   return employees ? (
     <div className="App">
-      <a
-        href="/"
-        className="absolute top-0 left-0 m-6"
-        onMouseEnter={() => setHomeHover(true)}
-        onMouseLeave={() => setHomeHover(false)}
-      >
-        {homeHover ? <BsHouseDoorFill size={32} /> : <BsHouseDoor size={32} />}
-      </a>
       <BrowserRouter>
+        <Link
+          to={"/"}
+          className="absolute top-0 left-0 m-6"
+          onMouseEnter={() => setHomeHover(true)}
+          onMouseLeave={() => setHomeHover(false)}
+        >
+          {homeHover ? (
+            <BsHouseDoorFill size={32} />
+          ) : (
+            <BsHouseDoor size={32} />
+          )}
+        </Link>
         <Routes>
-          <Route
-            exact
-            path="/"
-            element={<Home />}
-          ></Route>
+          <Route exact path="/" element={<Home />}></Route>
           <Route
             exact
             path="/employees"

@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 import ButtonEmployeeDelete from "./Forms/ButtonEmployeeDelete";
 import ButtonEmployeeEdit from "./Forms/ButtonEmployeeEdit";
 
 const EmployeeLink = ({ employee }) => {
   return (
-    <a
+    <Link
+      to={`/employees/${employee._id}`}
       className={
         "flex p-10 m-10 shadow-md rounded-lg shadow-md transition-all duration-500 ease-in-out hover:scale-101 hover:shadow-lg"
       }
-      href={`/employees/${employee._id}`}
     >
       <div className="flex justify-center basis-2/6">
         <img
@@ -28,7 +29,7 @@ const EmployeeLink = ({ employee }) => {
         <ButtonEmployeeEdit />
         <ButtonEmployeeDelete id={employee._id}/>
       </div>
-    </a>
+    </Link>
   );
 };
 
