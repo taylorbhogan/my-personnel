@@ -25,7 +25,7 @@ function App() {
   }, []);
 
   return employees ? (
-    <div className="App">
+    <div className="App h-full">
       <BrowserRouter>
         <Link
           to={"/"}
