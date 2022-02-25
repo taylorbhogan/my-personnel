@@ -7,7 +7,10 @@ const EmployeeLink = ({ employee }) => {
       href={`/employees/${employee._id}`}
     >
       <div className="flex justify-center basis-2/6">
-        <img src={employee.imgUrl} alt="professional headshot of this employee"/>
+        <img
+          src={employee.imgUrl}
+          alt="professional headshot of this employee"
+        />
       </div>
       <div className="basis-3/6 flex flex-col items-start px-5">
         <p className="text-3xl">{`${employee.name.first} ${employee.name.last}`}</p>
@@ -19,8 +22,12 @@ const EmployeeLink = ({ employee }) => {
         </p>
       </div>
       <div className="basis-1/6 flex justify-around items-center">
-        <button className="border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white">edit</button>
-        <button className="border-2 rounded-lg px-3 py-1 border-red-700 hover:bg-red-700 hover:text-black">delete</button>
+        <button className="border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white">
+          edit
+        </button>
+        <button className="border-2 rounded-lg px-3 py-1 border-red-700 hover:bg-red-700 hover:text-black">
+          delete
+        </button>
       </div>
     </a>
   );
