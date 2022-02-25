@@ -11,6 +11,9 @@ module.exports = {
       scale: {
         '101': '1.01'
       },
+      height: {
+        '8vh': '80vh'
+      }
     },
   },
   plugins: [],

@@ -14,12 +14,12 @@ const DropdownDepartment = ({ setFunction }) => {
 
   return (
     <select className="h-12 px-2" onChange={(e) => setFunction(e.target.value)}>
-      <option disabled={true} selected={true}>
+      <option disabled={true} defaultValue={true}>
         -select department-
       </option>
       {departments &&
-        departments.map((department) => (
-          <option value={department}>{department}</option>
+        departments.map((department, idx) => (
+          <option key={idx} value={department}>{department}</option>
         ))}
     </select>
   );

@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { GrClose } from "react-icons/gr";
+
 import Input from "./Input";
 import DropdownDepartment from "./DropdownDepartment";
 
-const NewEmployeeForm = () => {
+const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -62,6 +64,14 @@ const NewEmployeeForm = () => {
     });
     if (res.ok) {
       const newEmployeeData = await res.json();
+
+      const employeesObject = { ...employees };
+      employeesObject[newEmployeeData._id] = newEmployeeData;
+
+      setEmployees(employeesObject);
+
+      setShowModal(false);
+
       console.log("newEmployeeData", newEmployeeData);
     } else {
       console.log("res", res);
@@ -70,10 +80,11 @@ const NewEmployeeForm = () => {
 
   return (
     <form
-      className="container flex flex-col mx-auto p-6 border-4 border-sky-500 bg-white rounded-lg overflow-auto"
+      className="container flex flex-col mx-auto p-6 border-4 border-sky-500 bg-white rounded-lg overflow-auto h-8vh"
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl">Create a New Employee Record</h1>
+      <button onClick={() => setShowModal(false)} className="absolute top-0 right-0 m-4"><GrClose/></button>
       <div className="mt-4 bg-sky-100 rounded-lg p-4">
         <h2>Personal Info</h2>
         <div>
@@ -84,6 +95,7 @@ const NewEmployeeForm = () => {
             ariaLabel={"First Name"}
             onChange={(e) => setFirstName(e.target.value)}
             required={true}
+            autoFocus={true}
           />
           <Input
             type={"text"}
@@ -240,8 +252,14 @@ const NewEmployeeForm = () => {
           required={true}
         />
       </div>
-
-      <button type="submit">Submit</button>
+      <div className="flex justify-center my-6">
+        <button
+          className="border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white w-1/2"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
     </form>
   );
 };

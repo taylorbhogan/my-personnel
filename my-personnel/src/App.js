@@ -44,7 +44,7 @@ function App() {
           <Route
             exact
             path="/employees"
-            element={<Employees employees={employees} />}
+            element={<Employees employees={employees} setEmployees={setEmployees} />}
           ></Route>
           <Route
             path="/employees/:employeeId"

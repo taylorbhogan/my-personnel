@@ -5,7 +5,7 @@ const Input = ({
   ariaLabel,
   onChange,
   required,
-  label
+  autoFocus = false,
 }) => {
   return (
     <input
@@ -16,6 +16,7 @@ const Input = ({
       onChange={onChange}
       required={required}
       className="m-4 py-1 px-2 leading-10"
+      autoFocus={autoFocus}
     ></input>
   );
 };
