@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InfoField from "./InfoField";
 import Input from "../Forms/Input";
 import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
 
-const Contact = ({ employee }) => {
+const Contact = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
   const [phonePersonal, setPhone1] = useState(employee.phone.personal);
   const [phoneCorporate, setPhone2] = useState(employee.phone.corporate);
@@ -18,7 +18,7 @@ const Contact = ({ employee }) => {
         corporate: phoneCorporate,
       },
       email,
-    }
+    };
 
     const res = await fetch(`/api/employees/${employee._id}`, {
       method: "PATCH",
@@ -29,12 +29,18 @@ const Contact = ({ employee }) => {
     });
     if (res.ok) {
       const newEmployeeData = await res.json();
-      console.log("newEmployeeData", newEmployeeData);
+
+      const employeeObject = {...employees}
+      employeeObject[employee._id] = newEmployeeData
+
+      setEmployees(employeeObject)
+      setIsEditable(false)
+
+
     } else {
       console.log("res", res);
     }
-
-  }
+  };
 
   return (
     <div className="flex">
@@ -66,8 +72,7 @@ const Contact = ({ employee }) => {
               onChange={(e) => setEmail(e.target.value)}
               required={true}
             />
-                      <button type="submit">Save</button>
-
+            <button type="submit">Save</button>
           </form>
         ) : (
           <div className="flex">
@@ -85,7 +90,6 @@ const Contact = ({ employee }) => {
               <InfoField label={"Email: "} value={employee.email} />
             </div>
             <ButtonEmployeeEdit setIsEditable={setIsEditable} />
-
           </div>
         )}
       </div>

@@ -44,7 +44,7 @@ const Employee = ({ employees, setEmployees }) => {
         <div className="basis-2/3 pl-8">
           <Corporate employee={employee} />
           <Address employee={employee} />
-          <Contact employee={employee} />
+          <Contact employee={employee} employees={employees} setEmployees={setEmployees}/>
         </div>
       </div>
     </>

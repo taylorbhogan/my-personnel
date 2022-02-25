@@ -44,7 +44,7 @@ router.patch("/:id", async (req, res) => {
     { email },
     { new: true }
   );
-  console.log("mongoRes:", mongoResponse);
+  res.json(mongoResponse)
 });
 
 // DELETE - remove a single record from the database
