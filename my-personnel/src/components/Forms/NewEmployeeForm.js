@@ -9,7 +9,8 @@ const NewEmployeeForm = () => {
   const [title, setTitle] = useState("");
   const [department, setDepartment] = useState("");
   const [isAdmin, setIsAdmin] = useState(false);
-  const [phone, setPhone] = useState("");
+  const [phonePersonal, setPhone1] = useState("");
+  const [phoneCorporate, setPhone2] = useState("");
   const [email, setEmail] = useState("");
   const [street1, setStreet1] = useState("");
   const [street2, setStreet2] = useState("");
@@ -33,7 +34,10 @@ const NewEmployeeForm = () => {
       title,
       department,
       admin: isAdmin,
-      phone,
+      phone: {
+        personal: phonePersonal,
+        corporate: phoneCorporate,
+      },
       email,
       address: {
         street1,
@@ -152,10 +156,18 @@ const NewEmployeeForm = () => {
       />
       <Input
         type={"text"}
-        value={phone}
-        placeholder={"phone placeholder"}
-        ariaLabel={"phone placeholder"}
-        onChange={(e) => setPhone(e.target.value)}
+        value={phonePersonal}
+        placeholder={"phonePersonal placeholder"}
+        ariaLabel={"phonePersonal placeholder"}
+        onChange={(e) => setPhone1(e.target.value)}
+        required={true}
+      />
+      <Input
+        type={"text"}
+        value={phoneCorporate}
+        placeholder={"phoneCorporate placeholder"}
+        ariaLabel={"phoneCorporate placeholder"}
+        onChange={(e) => setPhone2(e.target.value)}
         required={true}
       />
       <Input

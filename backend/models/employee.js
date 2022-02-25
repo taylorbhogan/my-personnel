@@ -10,7 +10,10 @@ const employeeSchema = new mongoose.Schema({
   title: String,
   department: String,
   admin: Boolean,
-  phone: String,
+  phone: {
+    personal: String,
+    corporate: String,
+  }, 
   email: String,
   address: {
     street1: String,
