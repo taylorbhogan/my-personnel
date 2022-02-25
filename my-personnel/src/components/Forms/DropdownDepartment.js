@@ -13,7 +13,7 @@ const DropdownDepartment = ({ setFunction }) => {
   }, []);
 
   return (
-    <select onChange={(e) => setFunction(e.target.value)}>
+    <select className="h-12 px-2" onChange={(e) => setFunction(e.target.value)}>
       <option disabled={true} selected={true}>
         -select department-
       </option>

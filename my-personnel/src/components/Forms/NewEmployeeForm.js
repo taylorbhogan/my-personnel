@@ -69,144 +69,178 @@ const NewEmployeeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>New Employee Form</h1>
-      <Input
-        type={"text"}
-        value={firstName}
-        placeholder={"firstName placeholder"}
-        ariaLabel={"firstName placeholder"}
-        onChange={(e) => setFirstName(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={middleName}
-        placeholder={"middleName placeholder"}
-        ariaLabel={"middleName placeholder"}
-        onChange={(e) => setMiddleName(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={lastName}
-        placeholder={"lastName placeholder"}
-        ariaLabel={"lastName placeholder"}
-        onChange={(e) => setLastName(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={title}
-        placeholder={"title placeholder"}
-        ariaLabel={"title placeholder"}
-        onChange={(e) => setTitle(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={street1}
-        placeholder={"street1 placeholder"}
-        ariaLabel={"street1 placeholder"}
-        onChange={(e) => setStreet1(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={street2}
-        placeholder={"street2 placeholder"}
-        ariaLabel={"street2 placeholder"}
-        onChange={(e) => setStreet2(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={city}
-        placeholder={"city placeholder"}
-        ariaLabel={"city placeholder"}
-        onChange={(e) => setCity(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={state}
-        placeholder={"state placeholder"}
-        ariaLabel={"state placeholder"}
-        onChange={(e) => setState(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={zip}
-        placeholder={"zip placeholder"}
-        ariaLabel={"zip placeholder"}
-        onChange={(e) => setZip(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={country}
-        placeholder={"country placeholder"}
-        ariaLabel={"country placeholder"}
-        onChange={(e) => setCountry(e.target.value)}
-        required={true}
-      />
-      <DropdownDepartment
-        setFunction={(department) => setDepartment(department)}
-      />
-      <Input
-        type={"text"}
-        value={phonePersonal}
-        placeholder={"phonePersonal placeholder"}
-        ariaLabel={"phonePersonal placeholder"}
-        onChange={(e) => setPhone1(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={phoneCorporate}
-        placeholder={"phoneCorporate placeholder"}
-        ariaLabel={"phoneCorporate placeholder"}
-        onChange={(e) => setPhone2(e.target.value)}
-        required={true}
-      />
-      <Input
-        type={"text"}
-        value={email}
-        placeholder={"email placeholder"}
-        ariaLabel={"email placeholder"}
-        onChange={(e) => setEmail(e.target.value)}
-        required={true}
+    <form
+      className="container flex flex-col mx-auto p-6 border-4 border-sky-500 bg-white rounded-lg overflow-auto"
+      onSubmit={handleSubmit}
+    >
+      <h1 className="text-3xl">Create a New Employee Record</h1>
+      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+        <h2>Personal Info</h2>
+        <div>
+          <Input
+            type={"text"}
+            value={firstName}
+            placeholder={"First Name"}
+            ariaLabel={"First Name"}
+            onChange={(e) => setFirstName(e.target.value)}
+            required={true}
+          />
+          <Input
+            type={"text"}
+            value={middleName}
+            placeholder={"Middle Name"}
+            ariaLabel={"Middle Name"}
+            onChange={(e) => setMiddleName(e.target.value)}
+            required={true}
+          />
+          <Input
+            type={"text"}
+            value={lastName}
+            placeholder={"Last Name"}
+            ariaLabel={"Last Name"}
+            onChange={(e) => setLastName(e.target.value)}
+            required={true}
+          />
+        </div>
+        <Input
+          type={"text"}
+          value={imgUrl}
+          placeholder={"Headshot url"}
+          ariaLabel={"Headshot url"}
+          onChange={(e) => setImgUrl(e.target.value)}
+          required={true}
         />
-      <input
-        type={"checkbox"}
-        checked={isAdmin}
-        placeholder={"isAdmin placeholder"}
-        aria-label={"isAdmin placeholder"}
-        onChange={(e) => setIsAdmin(e.target.checked)}
-        ></input>
-      <input
-        type={"number"}
-        value={pto}
-        placeholder={"pto placeholder"}
-        aria-label={"pto placeholder"}
-        onChange={(e) => setPto(e.target.value)}
-        ></input>
-      <Input
-        type={"text"}
-        placeholder={"taxDocument placeholder"}
-        ariaLabel={"taxDocument placeholder"}
-        onChange={(e) => setTaxDocument(e.target.value)}
-        required={true}
+      </div>
+      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+        <h2>Company Info</h2>
+        <div>
+          <Input
+            type={"text"}
+            value={title}
+            placeholder={"Title"}
+            ariaLabel={"Title"}
+            onChange={(e) => setTitle(e.target.value)}
+            required={true}
+          />
+          <DropdownDepartment
+            setFunction={(department) => setDepartment(department)}
+          />
+        </div>
+        <div>
+          <label className="m-4">
+            <span>Admin: </span>
+            <input
+              type={"checkbox"}
+              checked={isAdmin}
+              placeholder={"isAdmin placeholder"}
+              aria-label={"isAdmin placeholder"}
+              onChange={(e) => setIsAdmin(e.target.checked)}
+              className="m-2"
+            ></input>
+          </label>
+          <label className="m-4">
+            <span>PTO Hours:</span>
+            <input
+              type={"number"}
+              value={pto}
+              placeholder={"pto placeholder"}
+              aria-label={"pto placeholder"}
+              onChange={(e) => setPto(e.target.value)}
+              className="m-2 py-1 px-2 leading-10"
+            ></input>
+          </label>
+        </div>
+      </div>
+      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+        <h2>Address Info</h2>
+
+        <Input
+          type={"text"}
+          value={street1}
+          placeholder={"Street Address"}
+          ariaLabel={"Street Address"}
+          onChange={(e) => setStreet1(e.target.value)}
+          required={true}
         />
-      <Input
-        type={"text"}
-        value={imgUrl}
-        placeholder={"imgUrl placeholder"}
-        ariaLabel={"imgUrl placeholder"}
-        onChange={(e) => setImgUrl(e.target.value)}
-        required={true}
-      />
+        <Input
+          type={"text"}
+          value={street2}
+          placeholder={"Apt/Suite/Other"}
+          ariaLabel={"Apt/Suite/Other"}
+          onChange={(e) => setStreet2(e.target.value)}
+          required={true}
+        />
+        <Input
+          type={"text"}
+          value={city}
+          placeholder={"City"}
+          ariaLabel={"City"}
+          onChange={(e) => setCity(e.target.value)}
+          required={true}
+        />
+        <Input
+          type={"text"}
+          value={state}
+          placeholder={"State"}
+          ariaLabel={"State"}
+          onChange={(e) => setState(e.target.value)}
+          required={true}
+        />
+        <Input
+          type={"text"}
+          value={zip}
+          placeholder={"ZIP Code"}
+          ariaLabel={"ZIP Code"}
+          onChange={(e) => setZip(e.target.value)}
+          required={true}
+        />
+        <Input
+          type={"text"}
+          value={country}
+          placeholder={"Country"}
+          ariaLabel={"Country"}
+          onChange={(e) => setCountry(e.target.value)}
+          required={true}
+        />
+      </div>
+      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+        <h2>Contact Info</h2>
+        <Input
+          type={"text"}
+          value={phonePersonal}
+          placeholder={"Personal Phone"}
+          ariaLabel={"Personal Phone"}
+          onChange={(e) => setPhone1(e.target.value)}
+          required={true}
+        />
+        <Input
+          type={"text"}
+          value={phoneCorporate}
+          placeholder={"Corporate Phone"}
+          ariaLabel={"Corporate Phone"}
+          onChange={(e) => setPhone2(e.target.value)}
+          required={true}
+        />
+        <Input
+          type={"text"}
+          value={email}
+          placeholder={"Email"}
+          ariaLabel={"Email"}
+          onChange={(e) => setEmail(e.target.value)}
+          required={true}
+        />
+      </div>
+      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+        <h2>Tax Documents</h2>
+        <Input
+          type={"text"}
+          placeholder={"Tax Document url"}
+          ariaLabel={"Tax Document url"}
+          onChange={(e) => setTaxDocument(e.target.value)}
+          required={true}
+        />
+      </div>
+
       <button type="submit">Submit</button>
     </form>
   );
