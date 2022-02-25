@@ -22,6 +22,7 @@ const employeeSchema = new mongoose.Schema({
   },
   pto: Number,
   taxDocuments: [ String ],
+  imgUrl: String,
   directSupervisor: mongoose.Schema.Types.ObjectId,
 }, {
   timestamps: true

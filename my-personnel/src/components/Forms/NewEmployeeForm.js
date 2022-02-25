@@ -19,6 +19,7 @@ const NewEmployeeForm = () => {
   const [country, setCountry] = useState("");
   const [pto, setPto] = useState(0);
   const [taxDocument, setTaxDocument] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,6 +45,7 @@ const NewEmployeeForm = () => {
       },
       pto,
       taxDocuments: [taxDocument],
+      imgUrl,
       directSupervisor: "6217ccd822a75a5caca18115",
     };
 
@@ -163,26 +165,34 @@ const NewEmployeeForm = () => {
         ariaLabel={"email placeholder"}
         onChange={(e) => setEmail(e.target.value)}
         required={true}
-      />
+        />
       <input
         type={"checkbox"}
         checked={isAdmin}
         placeholder={"isAdmin placeholder"}
         aria-label={"isAdmin placeholder"}
         onChange={(e) => setIsAdmin(e.target.checked)}
-      ></input>
+        ></input>
       <input
         type={"number"}
         value={pto}
         placeholder={"pto placeholder"}
         aria-label={"pto placeholder"}
         onChange={(e) => setPto(e.target.value)}
-      ></input>
+        ></input>
       <Input
         type={"text"}
         placeholder={"taxDocument placeholder"}
         ariaLabel={"taxDocument placeholder"}
         onChange={(e) => setTaxDocument(e.target.value)}
+        required={true}
+        />
+      <Input
+        type={"text"}
+        value={imgUrl}
+        placeholder={"imgUrl placeholder"}
+        ariaLabel={"imgUrl placeholder"}
+        onChange={(e) => setImgUrl(e.target.value)}
         required={true}
       />
       <button type="submit">Submit</button>
