@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import ButtonEmployeeDelete from "./Forms/ButtonEmployeeDelete";
-import ButtonEmployeeEdit from "./Forms/ButtonEmployeeEdit";
 
 const EmployeeLink = ({ employee }) => {
   return (
@@ -25,10 +23,6 @@ const EmployeeLink = ({ employee }) => {
           <span>{employee._id}</span>
         </p>
       </div>
-      {/* <div className="basis-1/6 flex justify-around items-center">
-        <ButtonEmployeeEdit />
-        <ButtonEmployeeDelete id={employee._id}/>
-      </div> */}
     </Link>
   );
 };

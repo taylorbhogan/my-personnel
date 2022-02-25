@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import InfoField from "./InfoField";
 import Input from "../Forms/Input";
 import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
@@ -12,58 +12,64 @@ const Contact = ({ employee, employees, setEmployees }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newEmployeeData = {
-      phone: {
-        personal: phonePersonal,
-        corporate: phoneCorporate,
-      },
-      email,
-    };
+
+    const employeeObject = {...employee}
+    employeeObject.email = email;
+    employeeObject.phone.personal = phonePersonal
+    employeeObject.phone.corporate = phoneCorporate
+
+    // const newEmployeeData = {
+    //   phone: {
+    //     personal: phonePersonal,
+    //     corporate: phoneCorporate,
+    //   },
+    //   email,
+    // };
 
     const res = await fetch(`/api/employees/${employee._id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newEmployeeData),
+      body: JSON.stringify(employeeObject),
     });
     if (res.ok) {
       const newEmployeeData = await res.json();
 
-      const employeeObject = {...employees}
-      employeeObject[employee._id] = newEmployeeData
+      const employeesObject = { ...employees };
+      employeesObject[employee._id] = newEmployeeData;
 
-      setEmployees(employeeObject)
-      setIsEditable(false)
-
-
+      setEmployees(employeesObject);
+      setIsEditable(false);
     } else {
       console.log("res", res);
     }
   };
 
   return (
-    <div className="flex">
-      <div className="basis-3/6">
-        <h3 className="text-2xl pb-3">Contact</h3>
-        {isEditable ? (
-          <form onSubmit={handleSubmit}>
-            <Input
-              type={"text"}
-              value={phonePersonal}
-              placeholder={"phonePersonal placeholder"}
-              ariaLabel={"phonePersonal placeholder"}
-              onChange={(e) => setPhone1(e.target.value)}
-              required={true}
-            />
-            <Input
-              type={"text"}
-              value={phoneCorporate}
-              placeholder={"phoneCorporate placeholder"}
-              ariaLabel={"phoneCorporate placeholder"}
-              onChange={(e) => setPhone2(e.target.value)}
-              required={true}
-            />
+    <div>
+      <h3 className="text-2xl pb-3">Contact</h3>
+      {isEditable ? (
+        <form className="flex items-center" onSubmit={handleSubmit}>
+          <div className="flex basis-5/6">
+            <div className="flex flex-col">
+              <Input
+                type={"text"}
+                value={phonePersonal}
+                placeholder={"phonePersonal placeholder"}
+                ariaLabel={"phonePersonal placeholder"}
+                onChange={(e) => setPhone1(e.target.value)}
+                required={true}
+              />
+              <Input
+                type={"text"}
+                value={phoneCorporate}
+                placeholder={"phoneCorporate placeholder"}
+                ariaLabel={"phoneCorporate placeholder"}
+                onChange={(e) => setPhone2(e.target.value)}
+                required={true}
+              />
+            </div>
             <Input
               type={"text"}
               value={email}
@@ -72,10 +78,19 @@ const Contact = ({ employee, employees, setEmployees }) => {
               onChange={(e) => setEmail(e.target.value)}
               required={true}
             />
-            <button type="submit">Save</button>
-          </form>
-        ) : (
-          <div className="flex">
+          </div>
+          <div className="basis-1/6">
+            <button
+              className="border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white"
+              type="submit"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+      ) : (
+        <div className="flex">
+          <div className="flex basis-5/6">
             <div>
               <InfoField
                 label={"Corporate Phone: "}
@@ -86,20 +101,15 @@ const Contact = ({ employee, employees, setEmployees }) => {
                 value={employee.phone.personal}
               />
             </div>
-            <div className="pl-2">
+            <div className="pl-8">
               <InfoField label={"Email: "} value={employee.email} />
             </div>
+          </div>
+          <div className="basis-1/6">
             <ButtonEmployeeEdit setIsEditable={setIsEditable} />
           </div>
-        )}
-      </div>
-      <div className="basis-3/6">
-        {/* {isEditable ? (
-          <button type="submit">Save</button>
-        ) : (
-          <ButtonEmployeeEdit setIsEditable={setIsEditable} />
-        )} */}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
