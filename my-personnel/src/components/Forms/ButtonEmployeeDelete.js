@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 
-const ButtonEmployeeDelete = ({id}) => {
+const ButtonEmployeeDelete = ({ id }) => {
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
@@ -13,19 +13,16 @@ const ButtonEmployeeDelete = ({id}) => {
   const handleDelete = async () => {
     const res = await fetch(`/api/employees/${id}`, {
       method: "DELETE",
-      // headers: {
-      //   "Content-Type": "application/json",
-      // },
     });
     if (res.ok) {
       const newEmployeeData = await res.json();
-      navigate('/employees')
-      setShowModal(false)
+      navigate("/employees");
+      setShowModal(false);
       console.log("newEmployeeData", newEmployeeData);
     } else {
       console.log("res", res);
     }
-  }
+  };
 
   return (
     <>
