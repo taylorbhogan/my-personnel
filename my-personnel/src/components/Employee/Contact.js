@@ -12,19 +12,10 @@ const Contact = ({ employee, employees, setEmployees }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
-    const employeeObject = {...employee}
+    const employeeObject = { ...employee };
     employeeObject.email = email;
-    employeeObject.phone.personal = phonePersonal
-    employeeObject.phone.corporate = phoneCorporate
-
-    // const newEmployeeData = {
-    //   phone: {
-    //     personal: phonePersonal,
-    //     corporate: phoneCorporate,
-    //   },
-    //   email,
-    // };
+    employeeObject.phone.personal = phonePersonal;
+    employeeObject.phone.corporate = phoneCorporate;
 
     const res = await fetch(`/api/employees/${employee._id}`, {
       method: "PATCH",

@@ -35,19 +35,24 @@ router.get("/:id", async (req, res) => {
 
 // PATCH - edit a single record in the database
 router.patch("/:id", async (req, res) => {
-  const newEmployeeData = req.body;
-  console.log('newEmployeeData',newEmployeeData);
-  // const newDbEmployee = new employeeModel(newEmployeeData)
-  const { email } = newEmployeeData;
   const id = req.params.id;
-  // console.log(email, id);
+  const newEmployeeData = req.body;
+  const { email, phone } = newEmployeeData;
+  const { personal, corporate } = phone;
+
   const mongoResponse = await employeeModel.findOneAndUpdate(
     { _id: id },
-    { email },
+    {
+      email,
+      phone: {
+        personal,
+        corporate,
+      },
+    },
     { new: true }
   );
-  console.log('mongoResponse',mongoResponse);
-  res.json(mongoResponse)
+
+  res.json(mongoResponse);
 });
 
 // DELETE - remove a single record from the database

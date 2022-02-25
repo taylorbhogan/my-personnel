@@ -10,6 +10,9 @@ const DropdownDepartment = ({ setFunction }) => {
       setDepartments(data);
     };
     fetchDepartments();
+    return () => {
+      setDepartments('')
+    }
   }, []);
 
   return (

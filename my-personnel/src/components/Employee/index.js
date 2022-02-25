@@ -36,6 +36,7 @@ const Employee = ({ employees, setEmployees }) => {
           />
           <div className="m-6">
             <ButtonEmployeeDelete
+              employees={employees}
               setEmployees={setEmployees}
               id={employee._id}
             />

@@ -10,6 +10,9 @@ export function ModalProvider({ children }) {
 
   useEffect(() => {
     setValue(modalRef.current);
+    // return () => {
+    //   setValue('')
+    // }
   }, [])
 
   return (
