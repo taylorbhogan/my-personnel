@@ -47,6 +47,12 @@ Returns the newly edited employee object if the user has provided all of the inf
 `DELETE /api/employees/<int:employee_id>` <br>
 Returns all employees if the specified employee account was successfully deleted.
 
+`GET /api/departments` <br>
+Returns all department names as an array
+
+`POST /api/departments` <br>
+Returns the newly created department object if the user has provided all of the information required to create a new department entry.
+
 ## Frontend Routes
 `/` <br>
 Renders the home page
