@@ -4,7 +4,6 @@ import { BsHouseDoor, BsHouseDoorFill } from "react-icons/bs";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
 import LoadingContent from "./components/LoadingContent";
-import "./App.css";
 
 function App() {
   const [employees, setEmployees] = useState({});
@@ -31,7 +30,7 @@ function App() {
         className="absolute top-0 left-0 m-6"
         onMouseEnter={() => setHomeHover(true)}
         onMouseLeave={() => setHomeHover(false)}
-        >
+      >
         {homeHover ? <BsHouseDoorFill size={32} /> : <BsHouseDoor size={32} />}
       </a>
       <BrowserRouter>
