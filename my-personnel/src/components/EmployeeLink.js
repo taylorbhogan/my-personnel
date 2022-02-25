@@ -1,3 +1,6 @@
+import ButtonEmployeeDelete from "./Forms/ButtonEmployeeDelete";
+import ButtonEmployeeEdit from "./Forms/ButtonEmployeeEdit";
+
 const EmployeeLink = ({ employee }) => {
   return (
     <a
@@ -22,12 +25,8 @@ const EmployeeLink = ({ employee }) => {
         </p>
       </div>
       <div className="basis-1/6 flex justify-around items-center">
-        <button className="border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white">
-          edit
-        </button>
-        <button className="border-2 rounded-lg px-3 py-1 border-red-700 hover:bg-red-700 hover:text-black">
-          delete
-        </button>
+        <ButtonEmployeeEdit />
+        <ButtonEmployeeDelete />
       </div>
     </a>
   );

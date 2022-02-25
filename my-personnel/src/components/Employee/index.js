@@ -5,6 +5,8 @@ import Address from "./Address";
 import LoadingContent from "../LoadingContent";
 import Contact from "./Contact";
 import Corporate from "./Corporate";
+import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
+import ButtonEmployeeDelete from "../Forms/ButtonEmployeeDelete";
 
 const Employee = ({ employees }) => {
   const [backHover, setBackHover] = useState(false);
@@ -28,11 +30,15 @@ const Employee = ({ employees }) => {
         )}
       </a>
       <div className="container mx-auto flex mt-24 p-6 border-4 rounded-lg border-sky-500">
-        <div className="basis-1/3 flex justify-center">
+        <div className="basis-1/3 flex flex-col items-center">
           <img
             src={employee.imgUrl}
             alt="professional headshot of this employee"
           />
+          <div className="flex justify-around m-6 w-full">
+            <ButtonEmployeeEdit />
+            <ButtonEmployeeDelete />
+          </div>
         </div>
         <div className="basis-2/3 pl-8">
           <Corporate employee={employee} />
