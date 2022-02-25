@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { BsHouseDoor, BsHouseDoorFill } from "react-icons/bs";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
-import { BsHouseDoor, BsHouseDoorFill } from "react-icons/bs";
+import LoadingContent from "./components/LoadingContent";
 import "./App.css";
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
     fetchEmployees();
   }, []);
 
-  return (
+  return employees ? (
     <div className="App">
       <a
         href="/"
@@ -47,6 +48,8 @@ function App() {
         </Routes>
       </BrowserRouter>
     </div>
+  ) : (
+    <LoadingContent />
   );
 }
 
