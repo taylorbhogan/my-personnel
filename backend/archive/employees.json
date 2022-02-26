@@ -1,0 +1,170 @@
+[
+  {
+    "_id": {
+      "$oid": "62183672fe76c4271819c360"
+    },
+    "corporateId": 2,
+    "name": {
+      "first": "Taylor",
+      "middle": "B",
+      "last": "Hogan"
+    },
+    "title": "Software Engineer",
+    "department": "Engineering",
+    "admin": true,
+    "phone": {
+      "personal": "(508) 320-7834",
+      "corporate": "(415) 763-1967"
+    },
+    "email": "taylorb.hogan@gmail.com",
+    "address": {
+      "street1": "28 Morrow Lane",
+      "street2": "Apt 2",
+      "city": "Hubbardston",
+      "state": "MA",
+      "zip": "01452",
+      "country": "USA"
+    },
+    "pto": 25,
+    "taxDocuments": [
+      "lkj"
+    ],
+    "directSupervisor": {
+      "$oid": "6217ccd822a75a5caca18115"
+    },
+    "createdAt": {
+      "$date": "2022-02-25T01:52:50.087Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-25T23:39:26.036Z"
+    },
+    "__v": 0,
+    "imgUrl": "https://avatars.githubusercontent.com/u/79616733?v=4"
+  },
+  {
+    "_id": {
+      "$oid": "621966166958face5017245d"
+    },
+    "corporateId": 2,
+    "name": {
+      "first": "Agnes",
+      "middle": "Jazmyne",
+      "last": "O'Kon"
+    },
+    "title": "Marketer",
+    "department": "Marketing",
+    "admin": true,
+    "phone": {
+      "personal": "(430) 370-0307",
+      "corporate": "(284) 617-6428 x0033"
+    },
+    "email": "Agnes84@benevolentorg.com",
+    "address": {
+      "street1": "773 Rory Run",
+      "street2": "Apt 2",
+      "city": "Independence",
+      "state": "MO",
+      "zip": "34231",
+      "country": "USA"
+    },
+    "pto": 23,
+    "taxDocuments": [
+      "http://judicious-wafer.name"
+    ],
+    "imgUrl": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/317.jpg",
+    "directSupervisor": {
+      "$oid": "62183672fe76c4271819c360"
+    },
+    "createdAt": {
+      "$date": "2022-02-25T23:28:22.902Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-25T23:39:53.316Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "621967626958face50172469"
+    },
+    "corporateId": 2,
+    "name": {
+      "first": "Reanna",
+      "middle": "Anne",
+      "last": "Zemlak"
+    },
+    "title": "Coordinator",
+    "department": "Marketing",
+    "admin": true,
+    "phone": {
+      "personal": "(411) 020-6085",
+      "corporate": "(751) 069-4243 x8142"
+    },
+    "email": "Reanna.Zemlak@benevolentorg.com",
+    "address": {
+      "street1": "9011 Jordane Prairie",
+      "street2": "Suite 234",
+      "city": "Jonesview",
+      "state": "CA",
+      "zip": "95213",
+      "country": "USA"
+    },
+    "pto": 50,
+    "taxDocuments": [
+      "https://frayed-hospice.com"
+    ],
+    "imgUrl": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/1077.jpg",
+    "directSupervisor": {
+      "$oid": "62183672fe76c4271819c360"
+    },
+    "createdAt": {
+      "$date": "2022-02-25T23:33:54.968Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-25T23:41:51.432Z"
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "621967c06958face5017246c"
+    },
+    "corporateId": 2,
+    "name": {
+      "first": "Aubrey",
+      "middle": "Jane",
+      "last": "Bosco"
+    },
+    "title": "Analyst",
+    "department": "Engineering",
+    "admin": true,
+    "phone": {
+      "personal": "(248) 015-1506",
+      "corporate": "(061) 256-8164 x0427"
+    },
+    "email": "Aubrey22@benevolentorg.com",
+    "address": {
+      "street1": "5345 Loraine Brooks",
+      "street2": "Apt 4",
+      "city": "Lake German",
+      "state": "KY",
+      "zip": "34527",
+      "country": "USA"
+    },
+    "pto": 42,
+    "taxDocuments": [
+      "http://gruesome-orchard.net"
+    ],
+    "imgUrl": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/581.jpg",
+    "directSupervisor": {
+      "$oid": "62183672fe76c4271819c360"
+    },
+    "createdAt": {
+      "$date": "2022-02-25T23:35:28.505Z"
+    },
+    "updatedAt": {
+      "$date": "2022-02-25T23:42:03.163Z"
+    },
+    "__v": 0
+  }
+]

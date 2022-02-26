@@ -1,0 +1,22 @@
+[
+  {
+    "_id": {
+      "$oid": "62182dc62405beb150bb3118"
+    },
+    "name": "Sales",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "62182e002bc8c6667b0d2a5b"
+    },
+    "name": "Marketing",
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6219686aa3eb3c5008631085"
+    },
+    "name": "Engineering"
+  }
+]
