@@ -25,7 +25,6 @@ const ButtonEmployeeDelete = ({ id, employees, setEmployees }) => {
       setEmployees(employeesObject);
       navigate("/employees");
       setShowModal(false);
-      console.log("newEmployeeData", newEmployeeData);
     } else {
       console.log("res", res);
     }

@@ -21,7 +21,6 @@ router.post("/", async (req, res) => {
     const mongoResponse = await newDepartment.save();
     res.json(mongoResponse);
   } catch (error) {
-    console.log("error:", error);
     res.json(error);
   }
 });

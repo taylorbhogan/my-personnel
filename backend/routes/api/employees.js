@@ -18,7 +18,6 @@ router.post("/", async (req, res) => {
     const mongoResponse = await newEmployee.save();
     res.json(mongoResponse);
   } catch (error) {
-    console.log("error:", error);
     res.json(error);
   }
   // when adding address: {} I received an UnhandledPromiseRejectionWarning for this line

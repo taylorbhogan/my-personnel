@@ -71,7 +71,6 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
 
       setShowModal(false);
 
-      console.log("newEmployeeData", newEmployeeData);
     } else {
       console.log("res", res);
     }
