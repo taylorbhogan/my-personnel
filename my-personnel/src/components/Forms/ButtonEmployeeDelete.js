@@ -17,14 +17,13 @@ const ButtonEmployeeDelete = ({ id, employees, setEmployees }) => {
       method: "DELETE",
     });
     if (res.ok) {
-      const newEmployeeData = await res.json();
+      // const newEmployeeData = await res.json();
 
       const employeesObject = { ...employees };
       delete employeesObject[id];
 
       setEmployees(employeesObject);
       navigate("/employees");
-      setShowModal(false);
     } else {
       console.log("res", res);
     }
