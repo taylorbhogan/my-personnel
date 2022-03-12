@@ -6,9 +6,9 @@ import DropdownDepartment from "../Forms/DropdownDepartment";
 
 const Corporate = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
-  const [firstName, setFirstName] = useState(employee.name.first);
-  const [middleName, setMiddleName] = useState(employee.name.middle);
-  const [lastName, setLastName] = useState(employee.name.last);
+  const [firstName, setFirstName] = useState(employee.name?.first);
+  const [middleName, setMiddleName] = useState(employee.name?.middle);
+  const [lastName, setLastName] = useState(employee.name?.last);
   const [title, setTitle] = useState(employee.title);
   const [isAdmin, setIsAdmin] = useState(false);
   const [department, setDepartment] = useState(employee.department);
@@ -28,6 +28,8 @@ const Corporate = ({ employee, employees, setEmployees }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
+
       },
       body: JSON.stringify(employeeObject),
     });
@@ -133,7 +135,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
         <div className="flex">
           <div className="basis-5/6">
             <h2 className="text-3xl mb-4">
-              {`${employee.name.first} ${employee.name.middle} ${employee.name.last}`}
+              {`${employee.name?.first} ${employee.name?.middle} ${employee.name?.last}`}
             </h2>
             <p className="text-xl">{employee.title}</p>
             <p className="text-xl">{employee.department}</p>

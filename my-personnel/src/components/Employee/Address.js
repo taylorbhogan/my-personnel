@@ -5,12 +5,12 @@ import InfoField from "./InfoField";
 
 const Address = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
-  const [street1, setStreet1] = useState(employee.address.street1);
-  const [street2, setStreet2] = useState(employee.address.street2);
-  const [city, setCity] = useState(employee.address.city);
-  const [state, setState] = useState(employee.address.state);
-  const [zip, setZip] = useState(employee.address.zip);
-  const [country, setCountry] = useState(employee.address.country);
+  const [street1, setStreet1] = useState(employee.address?.street1);
+  const [street2, setStreet2] = useState(employee.address?.street2);
+  const [city, setCity] = useState(employee.address?.city);
+  const [state, setState] = useState(employee.address?.state);
+  const [zip, setZip] = useState(employee.address?.zip);
+  const [country, setCountry] = useState(employee.address?.country);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +27,8 @@ const Address = ({ employee, employees, setEmployees }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
+
       },
       body: JSON.stringify(employeeObject),
     });
@@ -138,27 +140,27 @@ const Address = ({ employee, employees, setEmployees }) => {
           <div className="basis-5/6">
             <InfoField
               label={"Street Address: "}
-              value={employee.address.street1}
+              value={employee.address?.street1}
             />
             <InfoField
               label={"Apt/Suite/Other: "}
-              value={employee.address.street2}
+              value={employee.address?.street2}
             />
             <div className="flex">
-              <InfoField label={"City: "} value={employee.address.city} />
+              <InfoField label={"City: "} value={employee.address?.city} />
               <InfoField
                 label={"State: "}
-                value={employee.address.state}
+                value={employee.address?.state}
                 labelOptions={"ml-2"}
               />
               <InfoField
                 label={"ZIP Code: "}
-                value={employee.address.zip}
+                value={employee.address?.zip}
                 labelOptions={"ml-2"}
               />
               <InfoField
                 label={"Country: "}
-                value={employee.address.country}
+                value={employee.address?.country}
                 labelOptions={"ml-2"}
               />
             </div>

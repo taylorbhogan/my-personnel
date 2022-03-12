@@ -15,7 +15,7 @@ const EmployeeLink = ({ employee }) => {
         />
       </div>
       <div className="basis-3/6 flex flex-col items-start px-5">
-        <p className="text-3xl">{`${employee.name.first} ${employee.name.last}`}</p>
+        <p className="text-3xl">{`${employee.name?.first} ${employee.name?.last}`}</p>
         <p className="pb-1">{employee.title}</p>
         <p className="pb-1">{employee.department}</p>
         <p className="text-sm">

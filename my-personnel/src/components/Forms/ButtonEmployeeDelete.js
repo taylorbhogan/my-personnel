@@ -15,6 +15,9 @@ const ButtonEmployeeDelete = ({ id, employees, setEmployees }) => {
     e.preventDefault();
     const res = await fetch(`/api/employees/${id}`, {
       method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
+      }
     });
     if (res.ok) {
       // const newEmployeeData = await res.json();

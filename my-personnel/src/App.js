@@ -5,6 +5,7 @@ import Employees from "./components/Employees";
 import Employee from "./components/Employee";
 import LoadingContent from "./components/LoadingContent";
 import Home from "./components/Home";
+import LogoutButton from "./components/Auth/LogoutButton";
 
 function App() {
   const [employees, setEmployees] = useState({});
@@ -13,7 +14,11 @@ function App() {
   useEffect(() => {
     const fetchEmployees = async () => {
       const employeeObject = {};
-      const res = await fetch("/api/employees");
+      const res = await fetch("/api/employees",{
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
+        }
+      });
       const data = await res.json();
       data.forEach((employee) => {
         employeeObject[employee._id] = employee;
@@ -39,6 +44,7 @@ function App() {
             <BsHouseDoor size={32} />
           )}
         </Link>
+        <LogoutButton setEmployees={setEmployees}/>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route

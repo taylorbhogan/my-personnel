@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import LoginButton from "./Auth/LoginButton";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       >
         Manage All Employees
       </Link>
+      <LoginButton />
     </div>
   );
 };

@@ -27,6 +27,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
     e.preventDefault();
     const newEmployee = {
       corporateId: 2,
+      password: "password",
       name: {
         first: firstName,
         middle: middleName,
@@ -58,11 +59,13 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
       },
       body: JSON.stringify(newEmployee),
     });
+    console.log('res',res);
     if (res.ok) {
-      const newEmployeeData = await res.json();
+      const {newEmployeeData} = await res.json();
 
       const employeesObject = { ...employees };
       employeesObject[newEmployeeData._id] = newEmployeeData;

@@ -5,8 +5,8 @@ import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
 
 const Contact = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
-  const [phonePersonal, setPhone1] = useState(employee.phone.personal);
-  const [phoneCorporate, setPhone2] = useState(employee.phone.corporate);
+  const [phonePersonal, setPhone1] = useState(employee.phone?.personal);
+  const [phoneCorporate, setPhone2] = useState(employee.phone?.corporate);
   const [email, setEmail] = useState(employee.email);
 
   const handleSubmit = async (e) => {
@@ -21,6 +21,7 @@ const Contact = ({ employee, employees, setEmployees }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
       },
       body: JSON.stringify(employeeObject),
     });
@@ -100,11 +101,11 @@ const Contact = ({ employee, employees, setEmployees }) => {
             <div>
               <InfoField
                 label={"Corporate Phone: "}
-                value={employee.phone.corporate}
+                value={employee.phone?.corporate}
               />
               <InfoField
                 label={"Personal Phone: "}
-                value={employee.phone.personal}
+                value={employee.phone?.personal}
               />
             </div>
             <div className="pl-8">

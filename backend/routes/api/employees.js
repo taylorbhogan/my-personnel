@@ -2,6 +2,9 @@ const express = require("express");
 const faker = require("@faker-js/faker");
 const router = express.Router();
 const employeeModel = require("../../models/employee");
+const { requireAuth } = require('../../auth')
+
+router.use(requireAuth)
 
 // GET - get all employee records from the db
 router.get("/", async (req, res) => {
@@ -16,11 +19,11 @@ router.post("/", async (req, res) => {
 
   try {
     const mongoResponse = await newEmployee.save();
-    res.json(mongoResponse);
+    res.status(201).json({newEmployeeData: mongoResponse});
   } catch (error) {
     res.json(error);
   }
-  // when adding address: {} I received an UnhandledPromiseRejectionWarning for this line
+  // when adding address: {} I noticed an UnhandledPromiseRejectionWarning for this line
   res.json("an unexpected error occurred");
 });
 
