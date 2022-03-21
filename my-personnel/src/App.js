@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
-import { BsHouseDoor, BsHouseDoorFill } from "react-icons/bs";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
 import LoadingContent from "./components/LoadingContent";
 import Home from "./components/Home";
+import HomeLink from "./components/Navigation/HomeLink";
 import LogoutButton from "./components/Auth/LogoutButton";
 
 function App() {
   const [employees, setEmployees] = useState({});
-  const [homeHover, setHomeHover] = useState(false);
 
   useEffect(() => {
     const fetchEmployees = async () => {
       const employeeObject = {};
-      const res = await fetch("/api/employees",{
+      const res = await fetch("/api/employees", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem(
+            "MY_PERSONNEL_ACCESS_TOKEN"
+          )}`,
+        },
       });
       const data = await res.json();
       data.forEach((employee) => {
@@ -32,19 +33,8 @@ function App() {
   return employees ? (
     <div className="App h-full">
       <BrowserRouter>
-        <Link
-          to={"/"}
-          className="absolute top-0 left-0 m-6"
-          onMouseEnter={() => setHomeHover(true)}
-          onMouseLeave={() => setHomeHover(false)}
-        >
-          {homeHover ? (
-            <BsHouseDoorFill size={32} />
-          ) : (
-            <BsHouseDoor size={32} />
-          )}
-        </Link>
-        <LogoutButton setEmployees={setEmployees}/>
+        <HomeLink />
+        <LogoutButton setEmployees={setEmployees} />
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route
