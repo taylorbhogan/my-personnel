@@ -4,8 +4,7 @@ import Employees from "./components/Employees";
 import Employee from "./components/Employee";
 import LoadingContent from "./components/LoadingContent";
 import Home from "./components/Home";
-import HomeLink from "./components/Navigation/HomeLink";
-import LogoutButton from "./components/Auth/LogoutButton";
+import NavBar from "./components/Navigation/NavBar";
 
 function App() {
   const [employees, setEmployees] = useState({});
@@ -33,8 +32,7 @@ function App() {
   return employees ? (
     <div className="App h-full">
       <BrowserRouter>
-        <HomeLink />
-        <LogoutButton setEmployees={setEmployees} />
+        <NavBar setEmployees={setEmployees} />
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route
