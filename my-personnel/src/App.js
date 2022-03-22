@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+
+import NavBar from "./components/Navigation/NavBar";
+import Home from "./components/Home";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
+
 import LoadingContent from "./components/AppUtils/LoadingContent";
-import Home from "./components/Home";
-import NavBar from "./components/Navigation/NavBar";
+import PageNotFound from "./components/AppUtils/PageNotFound";
 
 function App() {
   const [employees, setEmployees] = useState({});
@@ -26,14 +29,7 @@ function App() {
             <Employee employees={employees} setEmployees={setEmployees} />
           }
         ></Route>
-        <Route
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
-        ></Route>
+        <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
     </div>
   ) : (
