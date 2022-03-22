@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
@@ -9,28 +9,8 @@ import NavBar from "./components/Navigation/NavBar";
 function App() {
   const [employees, setEmployees] = useState({});
 
-  useEffect(() => {
-    const fetchEmployees = async () => {
-      const employeeObject = {};
-      const res = await fetch("/api/employees", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem(
-            "MY_PERSONNEL_ACCESS_TOKEN"
-          )}`,
-        },
-      });
-      const data = await res.json();
-      data.forEach((employee) => {
-        employeeObject[employee._id] = employee;
-      });
-
-      setEmployees(employeeObject);
-    };
-    fetchEmployees();
-  }, []);
-
   return employees ? (
-    <div className="App h-full">
+    <div className="h-full">
       <BrowserRouter>
         <NavBar setEmployees={setEmployees} />
         <Routes>
