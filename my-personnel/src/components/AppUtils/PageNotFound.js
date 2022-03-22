@@ -1,6 +1,6 @@
 const PageNotFound = () => {
   return (
-    <main style={{ padding: "1rem" }}>
+    <main className="h-full flex justify-center items-center">
       <p>There's nothing here!</p>
     </main>
   );
