@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { BsArrowLeftCircle, BsArrowLeftCircleFill } from "react-icons/bs";
 import Address from "./Address";
-import LoadingContent from "../LoadingContent";
+import LoadingContent from "../AppUtils/LoadingContent";
 import Contact from "./Contact";
 import Corporate from "./Corporate";
 import ButtonEmployeeDelete from "../Forms/ButtonEmployeeDelete";
