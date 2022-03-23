@@ -5,7 +5,6 @@ import LoadingContent from "../AppUtils/LoadingContent";
 import Contact from "./EmployeeContact";
 import Corporate from "./EmployeeCorporate";
 import ButtonEmployeeDelete from "./ButtonEmployeeDelete";
-import BackLink from "../Navigation/BackLink";
 import Errors from "../AppUtils/Errors";
 
 const Employee = ({ employees, setEmployees }) => {
@@ -33,11 +32,10 @@ const Employee = ({ employees, setEmployees }) => {
         const data = await res.json();
         employeeObject[employeeId] = data;
         setEmployees(employeeObject);
-        
       } catch (err) {
         if (err.status === 404) {
           const errs = [...errors];
-          errs.push('No Employee Record for this ID was found in the Database');
+          errs.push("No Employee Record for this ID was found in the Database");
           setErrors(errs);
         } else {
           const errs = [...errors];
@@ -52,7 +50,6 @@ const Employee = ({ employees, setEmployees }) => {
 
   return isLoaded ? (
     <>
-      <BackLink />
       <Errors errors={errors} />
       {employee && (
         <div className="container mx-auto flex mt-24 p-6 border-4 rounded-lg border-sky-500">

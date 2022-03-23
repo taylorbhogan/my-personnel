@@ -13,7 +13,7 @@ const BackLink = () => {
     while (locationPathname[endIdx] !== '/'){
       endIdx--;
     }
-    
+
     return locationPathname.slice(0, endIdx);
   }
 

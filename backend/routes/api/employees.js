@@ -35,11 +35,9 @@ router.get("/:id", async (req, res) => {
   try {
     const employee = await employeeModel.findOne({ _id: id });
     res.json(employee);
-
   } catch (error) {
     res.status(404).end()
   }
-
 });
 
 // PATCH - edit a single record in the database
