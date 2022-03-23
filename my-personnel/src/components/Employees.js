@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import EmployeeLink from "./EmployeeLink";
 import ControlPanel from "./ControlPanel";
-import LoadingContent from "./LoadingContent";
+import LoadingContent from "./AppUtils/LoadingContent";
 
 const Employees = ({ employees, setEmployees }) => {
 

@@ -1,33 +1,20 @@
-import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { BsArrowLeftCircle, BsArrowLeftCircleFill } from "react-icons/bs";
+import React from "react";
+import { useParams } from "react-router-dom";
 import Address from "./Address";
-import LoadingContent from "../LoadingContent";
+import LoadingContent from "../AppUtils/LoadingContent";
 import Contact from "./Contact";
 import Corporate from "./Corporate";
 import ButtonEmployeeDelete from "../Forms/ButtonEmployeeDelete";
+import BackLink from "../Navigation/BackLink";
 
 const Employee = ({ employees, setEmployees }) => {
-  const [backHover, setBackHover] = useState(false);
-
   const { employeeId } = useParams();
 
   const employee = employees[employeeId];
 
   return employee ? (
     <>
-      <Link
-        to={"/employees"}
-        className="absolute top-0 left-12 m-6"
-        onMouseEnter={() => setBackHover(true)}
-        onMouseLeave={() => setBackHover(false)}
-      >
-        {backHover ? (
-          <BsArrowLeftCircleFill size={32} />
-        ) : (
-          <BsArrowLeftCircle size={32} />
-        )}
-      </Link>
+      <BackLink />
       <div className="container mx-auto flex mt-24 p-6 border-4 rounded-lg border-sky-500">
         <div className="basis-1/3 flex flex-col items-center">
           <img
