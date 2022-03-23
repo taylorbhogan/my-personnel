@@ -6,7 +6,6 @@ import LoginButton from "../Auth/LoginButton";
 
 const NavBar = ({ setEmployees }) => {
   const location = useLocation()
-  console.log('location:',location);
 
   return (
     <nav>

@@ -32,8 +32,6 @@ router.post("/api/login", async (req, res) => {
 
   const token = getUserToken(user);
 
-  console.log('user',user);
-
   if (user) {
     res.json({ user, token });
   } else {
