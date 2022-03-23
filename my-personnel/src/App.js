@@ -7,13 +7,12 @@ import Employees from "./components/Employees/Employees";
 import Employee from "./components/Employees/Employee";
 import Login from "./components/Auth/Login";
 
-import LoadingContent from "./components/AppUtils/LoadingContent";
 import PageNotFound from "./components/AppUtils/PageNotFound";
 
 function App() {
   const [employees, setEmployees] = useState({});
 
-  return employees ? (
+  return (
     <div className="h-full">
       <NavBar setEmployees={setEmployees} />
       <Routes>
@@ -34,9 +33,7 @@ function App() {
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>
     </div>
-  ) : (
-    <LoadingContent />
-  );
+  )
 }
 
 export default App;

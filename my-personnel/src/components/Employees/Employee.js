@@ -53,7 +53,8 @@ const Employee = ({ employees, setEmployees }) => {
       </div>
     </>
   ) : (
-    <LoadingContent />
+    // <LoadingContent />
+    <div>this is Employee</div>
   );
 };
 
