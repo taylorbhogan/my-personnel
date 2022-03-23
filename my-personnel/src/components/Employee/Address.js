@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
 import Input from "../Forms/Input";
-import InfoField from "./InfoField";
+import InfoField from "../AppUtils/InfoField";
 
 const Address = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);

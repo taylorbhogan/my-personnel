@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
 import Input from "../Forms/Input";
-import InfoField from "./InfoField";
+import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Forms/DropdownDepartment";
 
 const Corporate = ({ employee, employees, setEmployees }) => {

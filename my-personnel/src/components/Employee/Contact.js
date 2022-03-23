@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InfoField from "./InfoField";
+import InfoField from "../AppUtils/InfoField";
 import Input from "../Forms/Input";
 import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
 
