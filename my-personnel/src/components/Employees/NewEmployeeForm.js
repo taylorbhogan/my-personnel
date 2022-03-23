@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ButtonClose from "../AppUtils/ButtonClose";
 import Input from "../AppUtils/Input";
-import DropdownDepartment from "./DropdownDepartment";
+import DropdownDepartment from "../Departments/DepartmentDropdown";
 
 const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
   const [firstName, setFirstName] = useState("");

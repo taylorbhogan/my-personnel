@@ -1,4 +1,4 @@
-const ButtonEmployeeEdit = ({ setIsEditable }) => {
+const ButtonEdit = ({ setIsEditable }) => {
   return (
     <button
       onClick={() => setIsEditable(true)}
@@ -9,4 +9,4 @@ const ButtonEmployeeEdit = ({ setIsEditable }) => {
   );
 };
 
-export default ButtonEmployeeEdit;
+export default ButtonEdit;

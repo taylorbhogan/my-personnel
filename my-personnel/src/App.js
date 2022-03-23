@@ -3,8 +3,8 @@ import { Route, Routes } from "react-router-dom";
 
 import NavBar from "./components/Navigation/NavBar";
 import Home from "./components/Home";
-import Employees from "./components/Employees";
-import Employee from "./components/Employee";
+import Employees from "./components/Employees/Employees";
+import Employee from "./components/Employees/Employee";
 import Login from "./components/Auth/Login";
 
 import LoadingContent from "./components/AppUtils/LoadingContent";

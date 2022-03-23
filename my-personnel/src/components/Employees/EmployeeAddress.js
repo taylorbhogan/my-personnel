@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
+import ButtonEdit from "../AppUtils/ButtonEdit";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 
@@ -160,7 +160,7 @@ const Address = ({ employee, employees, setEmployees }) => {
             </div>
           </div>
           <div className="basis-1/6">
-            <ButtonEmployeeEdit setIsEditable={setIsEditable} />
+            <ButtonEdit setIsEditable={setIsEditable} />
           </div>
         </div>
       )}

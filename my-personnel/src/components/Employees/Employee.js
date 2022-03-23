@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import Address from "./Address";
+import Address from "./EmployeeAddress";
 import LoadingContent from "../AppUtils/LoadingContent";
-import Contact from "./Contact";
-import Corporate from "./Corporate";
-import ButtonEmployeeDelete from "../Forms/ButtonEmployeeDelete";
+import Contact from "./EmployeeContact";
+import Corporate from "./EmployeeCorporate";
+import ButtonEmployeeDelete from "./ButtonEmployeeDelete";
 import BackLink from "../Navigation/BackLink";
 
 const Employee = ({ employees, setEmployees }) => {
