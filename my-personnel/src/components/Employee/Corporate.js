@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
-import Input from "../Forms/Input";
+import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Forms/DropdownDepartment";
 

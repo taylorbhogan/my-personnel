@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InfoField from "../AppUtils/InfoField";
-import Input from "../Forms/Input";
+import Input from "../AppUtils/Input";
 import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
 
 const Contact = ({ employee, employees, setEmployees }) => {
