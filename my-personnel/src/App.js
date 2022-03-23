@@ -5,6 +5,7 @@ import NavBar from "./components/Navigation/NavBar";
 import Home from "./components/Home";
 import Employees from "./components/Employees";
 import Employee from "./components/Employee";
+import Login from "./components/Auth/Login";
 
 import LoadingContent from "./components/AppUtils/LoadingContent";
 import PageNotFound from "./components/AppUtils/PageNotFound";
@@ -17,6 +18,7 @@ function App() {
       <NavBar setEmployees={setEmployees} />
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
         <Route
           path="/employees"
           element={

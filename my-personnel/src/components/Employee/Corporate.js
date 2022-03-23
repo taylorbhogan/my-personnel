@@ -56,8 +56,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
               <Input
                 type={"text"}
                 value={firstName}
-                placeholder={"First Name"}
-                ariaLabel={"First Name"}
+                name={"First Name"}
                 onChange={(e) => setFirstName(e.target.value)}
                 required={true}
                 autoFocus={true}
@@ -68,8 +67,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
               <Input
                 type={"text"}
                 value={middleName}
-                placeholder={"Middle Name"}
-                ariaLabel={"Middle Name"}
+                name={"Middle Name"}
                 onChange={(e) => setMiddleName(e.target.value)}
                 required={true}
               />
@@ -91,8 +89,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
               <Input
                 type={"text"}
                 value={title}
-                placeholder={"Title"}
-                ariaLabel={"Title"}
+                Name={"Title"}
                 onChange={(e) => setTitle(e.target.value)}
                 required={true}
               />
@@ -102,8 +99,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
               <input
                 type={"checkbox"}
                 checked={isAdmin}
-                placeholder={"isAdmin placeholder"}
-                aria-label={"isAdmin placeholder"}
+                name={"isAdmin"}
                 onChange={(e) => setIsAdmin(e.target.checked)}
                 className="m-2"
               ></input>
