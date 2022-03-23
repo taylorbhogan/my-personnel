@@ -1,7 +1,7 @@
 import { useState } from "react";
-import InfoField from "./InfoField";
-import Input from "../Forms/Input";
-import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
+import InfoField from "../AppUtils/InfoField";
+import Input from "../AppUtils/Input";
+import ButtonEdit from "../AppUtils/ButtonEdit";
 
 const Contact = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -50,8 +50,7 @@ const Contact = ({ employee, employees, setEmployees }) => {
                 <Input
                   type={"text"}
                   value={phonePersonal}
-                  placeholder={"phonePersonal placeholder"}
-                  ariaLabel={"phonePersonal placeholder"}
+                  name={"Personal phone"}
                   onChange={(e) => setPhone1(e.target.value)}
                   required={true}
                 />
@@ -61,8 +60,7 @@ const Contact = ({ employee, employees, setEmployees }) => {
                 <Input
                   type={"text"}
                   value={phoneCorporate}
-                  placeholder={"phoneCorporate placeholder"}
-                  ariaLabel={"phoneCorporate placeholder"}
+                  name={"Corporate phone"}
                   onChange={(e) => setPhone2(e.target.value)}
                   required={true}
                 />
@@ -73,8 +71,7 @@ const Contact = ({ employee, employees, setEmployees }) => {
               <Input
                 type={"text"}
                 value={email}
-                placeholder={"email placeholder"}
-                ariaLabel={"email placeholder"}
+                name={"Email"}
                 onChange={(e) => setEmail(e.target.value)}
                 required={true}
               />
@@ -113,7 +110,7 @@ const Contact = ({ employee, employees, setEmployees }) => {
             </div>
           </div>
           <div className="basis-1/6">
-            <ButtonEmployeeEdit setIsEditable={setIsEditable} />
+            <ButtonEdit setIsEditable={setIsEditable} />
           </div>
         </div>
       )}

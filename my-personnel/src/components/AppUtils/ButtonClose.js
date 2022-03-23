@@ -1,9 +1,9 @@
 import { GrClose } from "react-icons/gr";
 
-const ButtonCloseModal = ({ setShowModal }) => {
+const ButtonClose = ({ setFunction }) => {
   return (
     <button
-      onClick={() => setShowModal(false)}
+      onClick={() => setFunction(false)}
       className="absolute top-0 right-0 m-4"
     >
       <GrClose />
@@ -11,4 +11,4 @@ const ButtonCloseModal = ({ setShowModal }) => {
   );
 };
 
-export default ButtonCloseModal;
+export default ButtonClose;

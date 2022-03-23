@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ButtonCloseModal from "./ButtonCloseModal";
-import Input from "./Input";
-import DropdownDepartment from "./DropdownDepartment";
+import ButtonClose from "../AppUtils/ButtonClose";
+import Input from "../AppUtils/Input";
+import DropdownDepartment from "../Departments/DepartmentDropdown";
 
 const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
   const [firstName, setFirstName] = useState("");
@@ -85,15 +85,14 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl">Create a New Employee Record</h1>
-      <ButtonCloseModal setShowModal={setShowModal} />
+      <ButtonClose setShowModal={setShowModal} />
       <div className="mt-4 bg-sky-100 rounded-lg p-4">
         <h2>Personal Info</h2>
         <div>
           <Input
             type={"text"}
             value={firstName}
-            placeholder={"First Name"}
-            ariaLabel={"First Name"}
+            name={"First Name"}
             onChange={(e) => setFirstName(e.target.value)}
             required={true}
             autoFocus={true}
@@ -101,16 +100,14 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
           <Input
             type={"text"}
             value={middleName}
-            placeholder={"Middle Name"}
-            ariaLabel={"Middle Name"}
+            name={"Middle Name"}
             onChange={(e) => setMiddleName(e.target.value)}
             required={true}
           />
           <Input
             type={"text"}
             value={lastName}
-            placeholder={"Last Name"}
-            ariaLabel={"Last Name"}
+            name={"Last Name"}
             onChange={(e) => setLastName(e.target.value)}
             required={true}
           />
@@ -118,8 +115,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
         <Input
           type={"text"}
           value={imgUrl}
-          placeholder={"Headshot url"}
-          ariaLabel={"Headshot url"}
+          name={"Headshot url"}
           onChange={(e) => setImgUrl(e.target.value)}
           required={true}
         />
@@ -130,8 +126,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
           <Input
             type={"text"}
             value={title}
-            placeholder={"Title"}
-            ariaLabel={"Title"}
+            name={"Title"}
             onChange={(e) => setTitle(e.target.value)}
             required={true}
           />
@@ -145,8 +140,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
             <input
               type={"checkbox"}
               checked={isAdmin}
-              placeholder={"isAdmin placeholder"}
-              aria-label={"isAdmin placeholder"}
+              name={"isAdmin placeholder"}
               onChange={(e) => setIsAdmin(e.target.checked)}
               className="m-2"
             ></input>
@@ -156,8 +150,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
             <input
               type={"number"}
               value={pto}
-              placeholder={"pto placeholder"}
-              aria-label={"pto placeholder"}
+              name={"pto placeholder"}
               onChange={(e) => setPto(e.target.value)}
               className="m-2 py-1 px-2 leading-10"
             ></input>
@@ -170,48 +163,42 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
         <Input
           type={"text"}
           value={street1}
-          placeholder={"Street Address"}
-          ariaLabel={"Street Address"}
+          name={"Street Address"}
           onChange={(e) => setStreet1(e.target.value)}
           required={true}
         />
         <Input
           type={"text"}
           value={street2}
-          placeholder={"Apt/Suite/Other"}
-          ariaLabel={"Apt/Suite/Other"}
+          name={"Apt/Suite/Other"}
           onChange={(e) => setStreet2(e.target.value)}
           required={true}
         />
         <Input
           type={"text"}
           value={city}
-          placeholder={"City"}
-          ariaLabel={"City"}
+          name={"City"}
           onChange={(e) => setCity(e.target.value)}
           required={true}
         />
         <Input
           type={"text"}
           value={state}
-          placeholder={"State"}
-          ariaLabel={"State"}
+          name={"State"}
           onChange={(e) => setState(e.target.value)}
           required={true}
         />
         <Input
           type={"text"}
           value={zip}
-          placeholder={"ZIP Code"}
-          ariaLabel={"ZIP Code"}
+          name={"ZIP Code"}
           onChange={(e) => setZip(e.target.value)}
           required={true}
         />
         <Input
           type={"text"}
           value={country}
-          placeholder={"Country"}
-          ariaLabel={"Country"}
+          name={"Country"}
           onChange={(e) => setCountry(e.target.value)}
           required={true}
         />
@@ -221,24 +208,21 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
         <Input
           type={"text"}
           value={phonePersonal}
-          placeholder={"Personal Phone"}
-          ariaLabel={"Personal Phone"}
+          name={"Personal Phone"}
           onChange={(e) => setPhone1(e.target.value)}
           required={true}
         />
         <Input
           type={"text"}
           value={phoneCorporate}
-          placeholder={"Corporate Phone"}
-          ariaLabel={"Corporate Phone"}
+          name={"Corporate Phone"}
           onChange={(e) => setPhone2(e.target.value)}
           required={true}
         />
         <Input
           type={"text"}
           value={email}
-          placeholder={"Email"}
-          ariaLabel={"Email"}
+          name={"Email"}
           onChange={(e) => setEmail(e.target.value)}
           required={true}
         />
@@ -247,8 +231,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
         <h2>Tax Documents</h2>
         <Input
           type={"text"}
-          placeholder={"Tax Document url"}
-          ariaLabel={"Tax Document url"}
+          name={"Tax Document url"}
           onChange={(e) => setTaxDocument(e.target.value)}
           required={true}
         />

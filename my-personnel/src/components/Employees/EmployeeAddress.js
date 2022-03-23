@@ -1,7 +1,7 @@
 import { useState } from "react";
-import ButtonEmployeeEdit from "../Forms/ButtonEmployeeEdit";
-import Input from "../Forms/Input";
-import InfoField from "./InfoField";
+import ButtonEdit from "../AppUtils/ButtonEdit";
+import Input from "../AppUtils/Input";
+import InfoField from "../AppUtils/InfoField";
 
 const Address = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -56,8 +56,7 @@ const Address = ({ employee, employees, setEmployees }) => {
               <Input
                 type={"text"}
                 value={street1}
-                placeholder={"Street Address"}
-                ariaLabel={"Street Address"}
+                name={"Street Address"}
                 onChange={(e) => setStreet1(e.target.value)}
                 required={true}
               />
@@ -67,8 +66,7 @@ const Address = ({ employee, employees, setEmployees }) => {
               <Input
                 type={"text"}
                 value={street2}
-                placeholder={"Apt/Suite/Other:"}
-                ariaLabel={"Apt/Suite/Other:"}
+                name={"Apt/Suite/Other"}
                 onChange={(e) => setStreet2(e.target.value)}
                 required={true}
               />
@@ -79,8 +77,7 @@ const Address = ({ employee, employees, setEmployees }) => {
                 <Input
                   type={"text"}
                   value={city}
-                  placeholder={"City:"}
-                  ariaLabel={"City:"}
+                  name={"City"}
                   onChange={(e) => setCity(e.target.value)}
                   required={true}
                 />
@@ -90,8 +87,7 @@ const Address = ({ employee, employees, setEmployees }) => {
                 <Input
                   type={"text"}
                   value={state}
-                  placeholder={"State"}
-                  ariaLabel={"State"}
+                  name={"State"}
                   onChange={(e) => setState(e.target.value)}
                   required={true}
                 />
@@ -102,8 +98,7 @@ const Address = ({ employee, employees, setEmployees }) => {
               <Input
                 type={"text"}
                 value={zip}
-                placeholder={"ZIP Code"}
-                ariaLabel={"ZIP Code"}
+                name={"ZIP Code"}
                 onChange={(e) => setZip(e.target.value)}
                 required={true}
               />
@@ -113,8 +108,7 @@ const Address = ({ employee, employees, setEmployees }) => {
               <Input
                 type={"text"}
                 value={country}
-                placeholder={"Country"}
-                ariaLabel={"Country"}
+                name={"Country"}
                 onChange={(e) => setCountry(e.target.value)}
                 required={true}
               />
@@ -166,7 +160,7 @@ const Address = ({ employee, employees, setEmployees }) => {
             </div>
           </div>
           <div className="basis-1/6">
-            <ButtonEmployeeEdit setIsEditable={setIsEditable} />
+            <ButtonEdit setIsEditable={setIsEditable} />
           </div>
         </div>
       )}

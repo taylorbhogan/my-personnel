@@ -1,22 +1,22 @@
 const Input = ({
   type,
   value,
-  placeholder,
-  ariaLabel,
+  name,
   onChange,
-  required,
+  required = false,
   autoFocus = false,
 }) => {
   return (
     <input
       type={type}
+      name={name}
+      placeholder={name}
+      aria-label={name}
       value={value}
-      placeholder={placeholder}
-      aria-label={ariaLabel}
       onChange={onChange}
       required={required}
-      className="m-4 py-1 px-2 leading-10 bg-sky-100"
       autoFocus={autoFocus}
+      className="m-4 py-1 px-2 leading-10 bg-sky-100"
     ></input>
   );
 };
