@@ -45,12 +45,14 @@ const Employee = ({ employees, setEmployees }) => {
       }
     };
 
-    if (!employee) fetchEmployee();
+    fetchEmployee();
   }, []);
 
-  return isLoaded ? (
+  // only render Errors if employee (loading from Employees) or if isLoaded (we have already fetched from the useEffect); otherwise show LoadingContent while fetching
+  return employee || isLoaded ? (
     <>
       <Errors errors={errors} />
+     {/* only render the employee info if employee (loading from Employees or the useEffect fetch was successful) */}
       {employee && (
         <div className="container mx-auto flex mt-24 p-6 border-4 rounded-lg border-sky-500">
           <div className="basis-1/3 flex flex-col items-center">
