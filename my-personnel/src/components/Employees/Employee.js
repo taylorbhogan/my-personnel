@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Address from "./EmployeeAddress";
-import LoadingContent from "../AppUtils/LoadingContent";
+import EmployeeLoadingContent from "../AppUtils/LoadingContentLottie";
 import Contact from "./EmployeeContact";
 import Corporate from "./EmployeeCorporate";
 import ButtonEmployeeDelete from "./ButtonEmployeeDelete";
@@ -48,7 +48,7 @@ const Employee = ({ employees, setEmployees }) => {
     fetchEmployee();
   }, []);
 
-  // only render Errors if employee (loading from Employees) or if isLoaded (we have already fetched from the useEffect); otherwise show LoadingContent while fetching
+  // only render Errors if employee (loading from Employees) or if isLoaded (we have already fetched from the useEffect); otherwise show EmployeeLoadingContent while fetching
   return employee || isLoaded ? (
     <>
       <Errors errors={errors} />
@@ -93,7 +93,7 @@ const Employee = ({ employees, setEmployees }) => {
       )}
     </>
   ) : (
-    <LoadingContent />
+    <EmployeeLoadingContent />
   );
 };
 
