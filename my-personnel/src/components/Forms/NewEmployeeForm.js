@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ButtonCloseModal from "./ButtonCloseModal";
+import ButtonClose from "../AppUtils/ButtonClose";
 import Input from "./Input";
 import DropdownDepartment from "./DropdownDepartment";
 
@@ -85,7 +85,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl">Create a New Employee Record</h1>
-      <ButtonCloseModal setShowModal={setShowModal} />
+      <ButtonClose setShowModal={setShowModal} />
       <div className="mt-4 bg-sky-100 rounded-lg p-4">
         <h2>Personal Info</h2>
         <div>
