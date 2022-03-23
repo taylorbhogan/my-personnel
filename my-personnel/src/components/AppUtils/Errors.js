@@ -1,4 +1,4 @@
-const Errors = ({ errors }) => {
+const Errors = ({ errors = [] }) => {
   return (
     errors.length > 0 && (
       <div className="flex flex-col items-center p-6 border-2 rounded-lg border-red-700">

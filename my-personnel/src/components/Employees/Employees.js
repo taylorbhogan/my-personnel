@@ -6,14 +6,10 @@ import ContentNotFound from "../AppUtils/ContentNotFound";
 import Errors from "../AppUtils/Errors";
 
 const Employees = ({ employees, setEmployees }) => {
-  const [ isLoaded, setIsLoaded ] = useState(false)
-  const [ errors, setErrors ] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
-    const token = localStorage.getItem("MY_PERSONNEL_ACCESS_TOKEN");
-
-    // if (token !== null && Object.entries(employees).length === 0){
-    // if (token !== null){
     const fetchEmployees = async () => {
       const employeeObject = {};
 
@@ -32,23 +28,21 @@ const Employees = ({ employees, setEmployees }) => {
           employeeObject[employee._id] = employee;
         });
 
-        setIsLoaded(true)
+        setIsLoaded(true);
         setEmployees(employeeObject);
-
       } catch (err) {
-        const errs = [...errors]
-        errs.push(err.statusText)
-        setErrors(errs)
+        const errs = [...errors];
+        errs.push(err.statusText);
+        setErrors(errs);
       }
     };
     fetchEmployees();
-    // }
   }, []);
 
   return (
     <div className={"container mx-auto"}>
       <ControlPanel employees={employees} setEmployees={setEmployees} />
-      <Errors errors={errors}/>
+      <Errors errors={errors} />
       {isLoaded ? (
         Object.keys(employees).length > 0 ? (
           Object.values(employees).map((employee) => (

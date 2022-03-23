@@ -31,8 +31,15 @@ router.post("/", async (req, res) => {
 // note: this route is currently unused
 router.get("/:id", async (req, res) => {
   const id = req.params.id;
-  const employee = await employeeModel.findOne({ _id: id });
-  res.json(employee);
+
+  try {
+    const employee = await employeeModel.findOne({ _id: id });
+    res.json(employee);
+
+  } catch (error) {
+    res.status(404).end()
+  }
+
 });
 
 // PATCH - edit a single record in the database
