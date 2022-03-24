@@ -5,6 +5,7 @@ import ButtonClose from "../AppUtils/ButtonClose";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import FlexCol from "../AppUtils/FlexCol";
+import InputBundler from "../AppUtils/InputBundler";
 
 const Address = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -69,36 +70,46 @@ const Address = ({ employee, employees, setEmployees }) => {
               onChange={(e) => setStreet2(e.target.value)}
               required={true}
             />
-            <div>
-              <Input
-                value={city}
-                name={"City"}
-                showLabel={true}
-                onChange={(e) => setCity(e.target.value)}
-                required={true}
-              />
-              <Input
-                value={state}
-                name={"State"}
-                showLabel={true}
-                onChange={(e) => setState(e.target.value)}
-                required={true}
-              />
-            </div>
-            <Input
-              value={zip}
-              name={"ZIP Code"}
-              showLabel={true}
-              onChange={(e) => setZip(e.target.value)}
-              required={true}
-            />
-            <Input
-              value={country}
-              name={"Country"}
-              showLabel={true}
-              onChange={(e) => setCountry(e.target.value)}
-              required={true}
-            />
+            <InputBundler>
+              <FlexCol options={"basis-full"}>
+                <Input
+                  value={city}
+                  name={"City"}
+                  showLabel={true}
+                  onChange={(e) => setCity(e.target.value)}
+                  required={true}
+                />
+              </FlexCol>
+              <FlexCol options={"basis-full"}>
+                <Input
+                  value={state}
+                  name={"State"}
+                  showLabel={true}
+                  onChange={(e) => setState(e.target.value)}
+                  required={true}
+                />
+              </FlexCol>
+            </InputBundler>
+            <InputBundler>
+              <FlexCol options={"basis-full"}>
+                <Input
+                  value={zip}
+                  name={"ZIP Code"}
+                  showLabel={true}
+                  onChange={(e) => setZip(e.target.value)}
+                  required={true}
+                />
+              </FlexCol>
+              <FlexCol options={"basis-full"}>
+                <Input
+                  value={country}
+                  name={"Country"}
+                  showLabel={true}
+                  onChange={(e) => setCountry(e.target.value)}
+                  required={true}
+                />
+              </FlexCol>
+            </InputBundler>
           </FlexCol>
           <FlexCol options={"basis-1/6"}>
             <ButtonClose setFunction={setIsEditable} />
@@ -135,9 +146,9 @@ const Address = ({ employee, employees, setEmployees }) => {
               />
             </div>
           </div>
-          <div className="basis-1/6">
+          <FlexCol options={"basis-1/6"}>
             <ButtonEdit setIsEditable={setIsEditable} />
-          </div>
+          </FlexCol>
         </div>
       )}
     </div>

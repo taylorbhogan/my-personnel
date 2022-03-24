@@ -47,8 +47,8 @@ const Contact = ({ employee, employees, setEmployees }) => {
     <div>
       <h3 className="text-2xl pb-3">Contact</h3>
       {isEditable ? (
-        <form className="flex items-center" onSubmit={handleSubmit}>
-          <div className="flex basis-5/6">
+        <form className="flex" onSubmit={handleSubmit}>
+          <div className="flex flex-col basis-5/6">
             <FlexCol>
               <Input
                 value={phonePersonal}
@@ -95,9 +95,9 @@ const Contact = ({ employee, employees, setEmployees }) => {
               <InfoField label={"Email: "} value={employee.email} />
             </div>
           </div>
-          <div className="basis-1/6">
+          <FlexCol options={"basis-1/6"}>
             <ButtonEdit setIsEditable={setIsEditable} />
-          </div>
+          </FlexCol>
         </div>
       )}
     </div>
