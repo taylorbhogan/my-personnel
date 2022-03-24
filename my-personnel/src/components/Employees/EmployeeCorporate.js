@@ -4,6 +4,7 @@ import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
 import ButtonSubmit from "../AppUtils/ButtonSubmit";
+import ButtonClose from "../AppUtils/ButtonClose";
 
 const Corporate = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -82,7 +83,6 @@ const Corporate = ({ employee, employees, setEmployees }) => {
                 required={true}
               />
             </label>
-
             <label>
               <span>Title: </span>
               <Input
@@ -111,13 +111,8 @@ const Corporate = ({ employee, employees, setEmployees }) => {
             </label>
           </div>
           <div className="flex flex-col basis-1/6">
-            <button
-              className="border-2 rounded-lg px-3 py-1 mb-3 border-slate-500 hover:bg-slate-500 hover:text-white"
-              onClick={() => setIsEditable(false)}
-            >
-              Close
-            </button>
-            <ButtonSubmit text={"Save"} width={"w-full"}/>
+            <ButtonClose setFunction={setIsEditable} />
+            <ButtonSubmit text={"Save"} width={"w-full"} />
           </div>
         </form>
       ) : (

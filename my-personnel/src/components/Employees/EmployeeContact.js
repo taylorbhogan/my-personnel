@@ -3,6 +3,7 @@ import InfoField from "../AppUtils/InfoField";
 import Input from "../AppUtils/Input";
 import ButtonEdit from "../AppUtils/ButtonEdit";
 import ButtonSubmit from "../AppUtils/ButtonSubmit";
+import ButtonClose from "../AppUtils/ButtonClose";
 
 const Contact = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -78,13 +79,8 @@ const Contact = ({ employee, employees, setEmployees }) => {
             </label>
           </div>
           <div className="flex flex-col basis-1/6">
-            <button
-              className="border-2 rounded-lg px-3 py-1 mb-3 border-slate-500 hover:bg-slate-500 hover:text-white"
-              onClick={() => setIsEditable(false)}
-            >
-              Close
-            </button>
-            <ButtonSubmit text={"Save"} width={"w-full"}/>
+            <ButtonClose setFunction={setIsEditable} />
+            <ButtonSubmit text={"Save"} width={"w-full"} />
           </div>
         </form>
       ) : (

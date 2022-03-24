@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ButtonEdit from "../AppUtils/ButtonEdit";
 import ButtonSubmit from "../AppUtils/ButtonSubmit";
+import ButtonClose from "../AppUtils/ButtonClose";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 
@@ -111,12 +112,7 @@ const Address = ({ employee, employees, setEmployees }) => {
             </label>
           </div>
           <div className="flex flex-col basis-1/6">
-            <button
-              className="border-2 rounded-lg px-3 py-1 mb-3 border-slate-500 hover:bg-slate-500 hover:text-white"
-              onClick={() => setIsEditable(false)}
-            >
-              Close
-            </button>
+            <ButtonClose setFunction={setIsEditable} />
             <ButtonSubmit text={"Save"} width={"w-full"} />
           </div>
         </form>
