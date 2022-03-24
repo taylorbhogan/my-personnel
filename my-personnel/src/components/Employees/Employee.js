@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Address from "./EmployeeAddress";
+import EmployeeAddress from "./EmployeeAddress";
 import EmployeeLoadingContent from "../AppUtils/LoadingContentLottie";
-import Contact from "./EmployeeContact";
-import Corporate from "./EmployeeCorporate";
+import EmployeeContact from "./EmployeeContact";
+import EmployeeCorporate from "./EmployeeCorporate";
 import ButtonEmployeeDelete from "./ButtonEmployeeDelete";
 import Errors from "../AppUtils/Errors";
 import FlexCol from "../AppUtils/FlexCol";
@@ -69,22 +69,21 @@ const Employee = ({ employees, setEmployees }) => {
               />
             </div>
           </FlexCol>
-
           <div className="basis-2/3 pl-8">
-            <Corporate
+            <EmployeeCorporate
               employee={employee}
               employees={employees}
               setEmployees={setEmployees}
             />
             <div className="mt-6">
-              <Address
+              <EmployeeAddress
                 employee={employee}
                 employees={employees}
                 setEmployees={setEmployees}
               />
             </div>
             <div className="mt-6">
-              <Contact
+              <EmployeeContact
                 employee={employee}
                 employees={employees}
                 setEmployees={setEmployees}
