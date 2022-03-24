@@ -3,6 +3,8 @@ import ButtonCloseX from "../AppUtils/ButtonCloseX";
 import Input from "../AppUtils/Input";
 import ButtonSubmit from "../AppUtils/ButtonSubmit";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
+import InputBundler from "../AppUtils/InputBundler";
+import { INPUT_ATTRIBUTES } from "../AppUtils/Input";
 
 const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
   const [firstName, setFirstName] = useState("");
@@ -81,16 +83,18 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
     }
   };
 
+  const sectionClassName = "border-2 border-sky-500 rounded-lg p-4 flex flex-col"
+
   return (
     <form
-      className="container flex flex-col mx-auto p-6 border-4 border-sky-500 bg-white rounded-lg overflow-auto h-8vh"
+      className="container flex gap-8 flex-col mx-auto p-16 border-4 border-sky-500 bg-white rounded-lg overflow-auto h-8vh"
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl">Create a New Employee Record</h1>
       <ButtonCloseX setFunction={setShowModal} />
-      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+      <section className={sectionClassName}>
         <h2>Personal Info</h2>
-        <div>
+        <InputBundler>
           <Input
             value={firstName}
             name={"First Name"}
@@ -110,17 +114,17 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
             onChange={(e) => setLastName(e.target.value)}
             required={true}
           />
-        </div>
+        </InputBundler>
         <Input
           value={imgUrl}
           name={"Headshot url"}
           onChange={(e) => setImgUrl(e.target.value)}
           required={true}
         />
-      </div>
-      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+      </section>
+      <section className={sectionClassName}>
         <h2>Company Info</h2>
-        <div>
+        <InputBundler>
           <Input
             value={title}
             name={"Title"}
@@ -130,9 +134,9 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
           <DropdownDepartment
             setFunction={(department) => setDepartment(department)}
           />
-        </div>
-        <div>
-          <label className="m-4">
+        </InputBundler>
+        <InputBundler>
+          <label className="m-4 basis-full flex flex-row items-center justify-start">
             <span>Admin: </span>
             <input
               type={"checkbox"}
@@ -142,86 +146,94 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
               className="m-2"
             ></input>
           </label>
-          <label className="m-4">
+          <label className="m-4 basis-full flex flex-row items-center justify-between">
             <span>PTO Hours:</span>
             <input
               type={"number"}
               value={pto}
               name={"pto placeholder"}
               onChange={(e) => setPto(e.target.value)}
-              className="m-2 py-1 px-2 leading-10"
+              className={INPUT_ATTRIBUTES}
             ></input>
           </label>
-        </div>
-      </div>
-      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+        </InputBundler>
+      </section>
+      <section className={sectionClassName}>
         <h2>Address Info</h2>
-        <Input
-          value={street1}
-          name={"Street Address"}
-          onChange={(e) => setStreet1(e.target.value)}
-          required={true}
-        />
-        <Input
-          value={street2}
-          name={"Apt/Suite/Other"}
-          onChange={(e) => setStreet2(e.target.value)}
-          required={true}
-        />
-        <Input
-          value={city}
-          name={"City"}
-          onChange={(e) => setCity(e.target.value)}
-          required={true}
-        />
-        <Input
-          value={state}
-          name={"State"}
-          onChange={(e) => setState(e.target.value)}
-          required={true}
-        />
-        <Input
-          value={zip}
-          name={"ZIP Code"}
-          onChange={(e) => setZip(e.target.value)}
-          required={true}
-        />
-        <Input
-          value={country}
-          name={"Country"}
-          onChange={(e) => setCountry(e.target.value)}
-          required={true}
-        />
-      </div>
-      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+        <InputBundler>
+          <Input
+            value={street1}
+            name={"Street Address"}
+            onChange={(e) => setStreet1(e.target.value)}
+            required={true}
+          />
+          <Input
+            value={street2}
+            name={"Apt/Suite/Other"}
+            onChange={(e) => setStreet2(e.target.value)}
+            required={true}
+          />
+          <Input
+            value={city}
+            name={"City"}
+            onChange={(e) => setCity(e.target.value)}
+            required={true}
+          />
+        </InputBundler>
+        <InputBundler>
+          <Input
+            value={state}
+            name={"State"}
+            onChange={(e) => setState(e.target.value)}
+            required={true}
+          />
+          <Input
+            value={zip}
+            name={"ZIP Code"}
+            onChange={(e) => setZip(e.target.value)}
+            required={true}
+          />
+          <Input
+            value={country}
+            name={"Country"}
+            onChange={(e) => setCountry(e.target.value)}
+            required={true}
+          />
+        </InputBundler>
+      </section>
+      <section className={sectionClassName}>
         <h2>Contact Info</h2>
-        <Input
-          value={phonePersonal}
-          name={"Personal Phone"}
-          onChange={(e) => setPhone1(e.target.value)}
-          required={true}
-        />
-        <Input
-          value={phoneCorporate}
-          name={"Corporate Phone"}
-          onChange={(e) => setPhone2(e.target.value)}
-          required={true}
-        />
+        <InputBundler>
+          <Input
+            value={phonePersonal}
+            name={"Personal Phone"}
+            onChange={(e) => setPhone1(e.target.value)}
+            required={true}
+          />
+          <Input
+            value={phoneCorporate}
+            name={"Corporate Phone"}
+            onChange={(e) => setPhone2(e.target.value)}
+            required={true}
+          />
+        </InputBundler>
         <Input
           value={email}
           name={"Email"}
           onChange={(e) => setEmail(e.target.value)}
           required={true}
         />
-      </div>
-      <div className="mt-4 bg-sky-100 rounded-lg p-4">
+      </section>
+      <section className={sectionClassName}>
         <h2>Tax Documents</h2>
-        <Input
-          name={"Tax Document url"}
-          onChange={(e) => setTaxDocument(e.target.value)}
-          required={true}
-        />
-      </div>
+        <InputBundler>
+          <Input
+            name={"Tax Document url"}
+            onChange={(e) => setTaxDocument(e.target.value)}
+            required={true}
+          />
+        </InputBundler>
+      </section>
       <div className="flex justify-center my-6">
         <ButtonSubmit text={"Submit"} width={"w-1/2"} />
       </div>

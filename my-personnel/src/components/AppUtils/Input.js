@@ -1,3 +1,5 @@
+export const INPUT_ATTRIBUTES = "m-4 py-1 px-2 leading-10 bg-sky-100 rounded basis-full"
+
 const Input = ({
   type = "text",
   value,
@@ -8,7 +10,6 @@ const Input = ({
   required = false,
   autoFocus = false,
 }) => {
-  // const inputClassName = "m-4 py-1 px-2 leading-10 bg-sky-100"
 
   if (showLabel) {
     return (
@@ -24,7 +25,7 @@ const Input = ({
           onChange={onChange}
           required={required}
           autoFocus={autoFocus}
-          className={"m-4 py-1 px-2 leading-10 bg-sky-100 basis-full"}
+          className={INPUT_ATTRIBUTES}
         ></input>
       </>
     );
@@ -39,7 +40,7 @@ const Input = ({
         onChange={onChange}
         required={required}
         autoFocus={autoFocus}
-        className={"m-4 py-1 px-2 leading-10 bg-sky-100"}
+        className={INPUT_ATTRIBUTES}
       ></input>
     );
   }

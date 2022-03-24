@@ -93,8 +93,8 @@ const Corporate = ({ employee, employees, setEmployees }) => {
               showLabel={true}
               required={true}
             />
-            <div className="basis-full flex justify-around">
-              <label className="m-4">
+            <div className="basis-full flex items-center">
+              <label className="m-4 basis-full">
                 <span>Admin?</span>
                 <input
                   type={"checkbox"}
@@ -104,13 +104,10 @@ const Corporate = ({ employee, employees, setEmployees }) => {
                   className="m-2"
                 ></input>
               </label>
-              <label>
-                <span>Department:</span>
-                <DropdownDepartment
-                  value={department}
-                  setFunction={(department) => setDepartment(department)}
-                />
-              </label>
+              <DropdownDepartment
+                value={department}
+                setFunction={(department) => setDepartment(department)}
+              />
             </div>
           </FlexCol>
           <FlexCol options={"basis-1/6"}>
