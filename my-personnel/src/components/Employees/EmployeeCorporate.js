@@ -55,46 +55,37 @@ const Corporate = ({ employee, employees, setEmployees }) => {
       {isEditable ? (
         <form className="flex" onSubmit={handleSubmit}>
           <FlexCol options={"basis-5/6"}>
-            <label>
-              <span>First Name: </span>
-              <Input
-                value={firstName}
-                name={"First Name"}
-                onChange={(e) => setFirstName(e.target.value)}
-                required={true}
-                autoFocus={true}
-              />
-            </label>
-            <label>
-              <span>Middle Name: </span>
-              <Input
-                value={middleName}
-                name={"Middle Name"}
-                onChange={(e) => setMiddleName(e.target.value)}
-                required={true}
-              />
-            </label>
-            <label>
-              <span>Last Name: </span>
-              <Input
-                value={lastName}
-                placeholder={"Last Name"}
-                ariaLabel={"Last Name"}
-                onChange={(e) => setLastName(e.target.value)}
-                required={true}
-              />
-            </label>
-            <label>
-              <span>Title: </span>
-              <Input
-                value={title}
-                Name={"Title"}
-                onChange={(e) => setTitle(e.target.value)}
-                required={true}
-              />
-            </label>
+            <Input
+              value={firstName}
+              name={"First Name"}
+              onChange={(e) => setFirstName(e.target.value)}
+              showLabel={true}
+              required={true}
+              autoFocus={true}
+            />
+            <Input
+              value={middleName}
+              name={"Middle Name"}
+              onChange={(e) => setMiddleName(e.target.value)}
+              showLabel={true}
+              required={true}
+            />
+            <Input
+              value={lastName}
+              name={"Last Name"}
+              onChange={(e) => setLastName(e.target.value)}
+              showLabel={true}
+              required={true}
+            />
+            <Input
+              value={title}
+              name={"Title"}
+              onChange={(e) => setTitle(e.target.value)}
+              showLabel={true}
+              required={true}
+            />
             <label className="m-4">
-              <span>Admin: </span>
+              <span>Admin?</span>
               <input
                 type={"checkbox"}
                 checked={isAdmin}
@@ -104,7 +95,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
               ></input>
             </label>
             <label>
-              <span>Department: </span>
+              <span>Department:</span>
               <DropdownDepartment
                 value={department}
                 setFunction={(department) => setDepartment(department)}

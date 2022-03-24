@@ -156,7 +156,6 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       </div>
       <div className="mt-4 bg-sky-100 rounded-lg p-4">
         <h2>Address Info</h2>
-
         <Input
           value={street1}
           name={"Street Address"}

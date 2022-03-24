@@ -55,62 +55,50 @@ const Address = ({ employee, employees, setEmployees }) => {
       {isEditable ? (
         <form onSubmit={handleSubmit} className="flex">
           <FlexCol options={"basis-5/6"}>
-            <label>
-              <span>Street Address:</span>
-              <Input
-                value={street1}
-                name={"Street Address"}
-                onChange={(e) => setStreet1(e.target.value)}
-                required={true}
-              />
-            </label>
-            <label>
-              <span>Apt/Suite/Other:</span>
-              <Input
-                value={street2}
-                name={"Apt/Suite/Other"}
-                onChange={(e) => setStreet2(e.target.value)}
-                required={true}
-              />
-            </label>
+            <Input
+              value={street1}
+              name={"Street Address"}
+              showLabel={true}
+              onChange={(e) => setStreet1(e.target.value)}
+              required={true}
+            />
+            <Input
+              value={street2}
+              name={"Apt/Suite/Other"}
+              showLabel={true}
+              onChange={(e) => setStreet2(e.target.value)}
+              required={true}
+            />
             <div>
-              <label>
-                <span>City:</span>
-                <Input
-                  value={city}
-                  name={"City"}
-                  onChange={(e) => setCity(e.target.value)}
-                  required={true}
-                />
-              </label>
-              <label>
-                <span>State:</span>
-                <Input
-                  value={state}
-                  name={"State"}
-                  onChange={(e) => setState(e.target.value)}
-                  required={true}
-                />
-              </label>
+              <Input
+                value={city}
+                name={"City"}
+                showLabel={true}
+                onChange={(e) => setCity(e.target.value)}
+                required={true}
+              />
+              <Input
+                value={state}
+                name={"State"}
+                showLabel={true}
+                onChange={(e) => setState(e.target.value)}
+                required={true}
+              />
             </div>
-            <label>
-              <span>Zip:</span>
-              <Input
-                value={zip}
-                name={"ZIP Code"}
-                onChange={(e) => setZip(e.target.value)}
-                required={true}
-              />
-            </label>
-            <label>
-              <span>Country:</span>
-              <Input
-                value={country}
-                name={"Country"}
-                onChange={(e) => setCountry(e.target.value)}
-                required={true}
-              />
-            </label>
+            <Input
+              value={zip}
+              name={"ZIP Code"}
+              showLabel={true}
+              onChange={(e) => setZip(e.target.value)}
+              required={true}
+            />
+            <Input
+              value={country}
+              name={"Country"}
+              showLabel={true}
+              onChange={(e) => setCountry(e.target.value)}
+              required={true}
+            />
           </FlexCol>
           <FlexCol options={"basis-1/6"}>
             <ButtonClose setFunction={setIsEditable} />

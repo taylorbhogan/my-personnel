@@ -50,35 +50,28 @@ const Contact = ({ employee, employees, setEmployees }) => {
         <form className="flex items-center" onSubmit={handleSubmit}>
           <div className="flex basis-5/6">
             <FlexCol>
-              <label>
-                <span>Personal Phone:</span>
-                <Input
-                  value={phonePersonal}
-                  name={"Personal phone"}
-                  onChange={(e) => setPhone1(e.target.value)}
-                  required={true}
-                />
-              </label>
-              <label>
-                <span>Corporate Phone: </span>
-                <Input
-                  value={phoneCorporate}
-                  name={"Corporate phone"}
-                  onChange={(e) => setPhone2(e.target.value)}
-                  required={true}
-                />
-              </label>
-            </FlexCol>
-
-            <label>
-              <span>Email: </span>
               <Input
-                value={email}
-                name={"Email"}
-                onChange={(e) => setEmail(e.target.value)}
+                value={phonePersonal}
+                name={"Personal phone"}
+                showLabel={true}
+                onChange={(e) => setPhone1(e.target.value)}
                 required={true}
               />
-            </label>
+              <Input
+                value={phoneCorporate}
+                name={"Corporate phone"}
+                showLabel={true}
+                onChange={(e) => setPhone2(e.target.value)}
+                required={true}
+              />
+            </FlexCol>
+            <Input
+              value={email}
+              name={"Email"}
+              showLabel={true}
+              onChange={(e) => setEmail(e.target.value)}
+              required={true}
+            />
           </div>
           <FlexCol options={"basis-1/6"}>
             <ButtonClose setFunction={setIsEditable} />
