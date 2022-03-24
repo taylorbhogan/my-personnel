@@ -6,6 +6,7 @@ import Contact from "./EmployeeContact";
 import Corporate from "./EmployeeCorporate";
 import ButtonEmployeeDelete from "./ButtonEmployeeDelete";
 import Errors from "../AppUtils/Errors";
+import FlexCol from "../AppUtils/FlexCol";
 
 const Employee = ({ employees, setEmployees }) => {
   const [errors, setErrors] = useState([]);
@@ -52,10 +53,10 @@ const Employee = ({ employees, setEmployees }) => {
   return employee || isLoaded ? (
     <>
       <Errors errors={errors} />
-     {/* only render the employee info if employee (loading from Employees or the useEffect fetch was successful) */}
+      {/* only render the employee info if employee (loading from Employees or the useEffect fetch was successful) */}
       {employee && (
         <div className="container mx-auto flex mt-24 p-6 border-4 rounded-lg border-sky-500">
-          <div className="basis-1/3 flex flex-col items-center">
+          <FlexCol options={"items-center basis-1/3"}>
             <img
               src={employee.imgUrl}
               alt="professional headshot of this employee"
@@ -67,7 +68,8 @@ const Employee = ({ employees, setEmployees }) => {
                 id={employee._id}
               />
             </div>
-          </div>
+          </FlexCol>
+
           <div className="basis-2/3 pl-8">
             <Corporate
               employee={employee}

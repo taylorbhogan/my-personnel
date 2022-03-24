@@ -5,6 +5,7 @@ import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
 import ButtonSubmit from "../AppUtils/ButtonSubmit";
 import ButtonClose from "../AppUtils/ButtonClose";
+import FlexCol from "../AppUtils/FlexCol";
 
 const Corporate = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -53,7 +54,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
     <div className="">
       {isEditable ? (
         <form className="flex" onSubmit={handleSubmit}>
-          <div className="flex flex-col basis-5/6">
+          <FlexCol options={"basis-5/6"}>
             <label>
               <span>First Name: </span>
               <Input
@@ -109,11 +110,11 @@ const Corporate = ({ employee, employees, setEmployees }) => {
                 setFunction={(department) => setDepartment(department)}
               />
             </label>
-          </div>
-          <div className="flex flex-col basis-1/6">
+          </FlexCol>
+          <FlexCol options={"basis-1/6"}>
             <ButtonClose setFunction={setIsEditable} />
             <ButtonSubmit text={"Save"} width={"w-full"} />
-          </div>
+          </FlexCol>
         </form>
       ) : (
         <div className="flex">
