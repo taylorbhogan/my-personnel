@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import FlexCol from "../AppUtils/FlexCol";
 
 const EmployeeLink = ({ employee }) => {
   return (
@@ -14,7 +15,7 @@ const EmployeeLink = ({ employee }) => {
           alt="professional headshot of this employee"
         />
       </div>
-      <div className="basis-3/6 flex flex-col items-start px-5">
+      <FlexCol options={"basis-3/6 items-start px-5"}>
         <p className="text-3xl">{`${employee.name?.first} ${employee.name?.last}`}</p>
         <p className="pb-1">{employee.title}</p>
         <p className="pb-1">{employee.department}</p>
@@ -22,7 +23,7 @@ const EmployeeLink = ({ employee }) => {
           <span className="font-bold">Employee ID: </span>
           <span>{employee._id}</span>
         </p>
-      </div>
+      </FlexCol>
     </Link>
   );
 };

@@ -2,6 +2,9 @@ import { useState } from "react";
 import InfoField from "../AppUtils/InfoField";
 import Input from "../AppUtils/Input";
 import ButtonEdit from "../AppUtils/ButtonEdit";
+import ButtonSubmit from "../AppUtils/ButtonSubmit";
+import ButtonClose from "../AppUtils/ButtonClose";
+import FlexCol from "../AppUtils/FlexCol";
 
 const Contact = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -21,7 +24,9 @@ const Contact = ({ employee, employees, setEmployees }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
+        Authorization: `Bearer ${localStorage.getItem(
+          "MY_PERSONNEL_ACCESS_TOKEN"
+        )}`,
       },
       body: JSON.stringify(employeeObject),
     });
@@ -44,53 +49,34 @@ const Contact = ({ employee, employees, setEmployees }) => {
       {isEditable ? (
         <form className="flex items-center" onSubmit={handleSubmit}>
           <div className="flex basis-5/6">
-            <div className="flex flex-col">
-              <label>
-                <span>Personal Phone:</span>
-                <Input
-                  type={"text"}
-                  value={phonePersonal}
-                  name={"Personal phone"}
-                  onChange={(e) => setPhone1(e.target.value)}
-                  required={true}
-                />
-              </label>
-              <label>
-                <span>Corporate Phone: </span>
-                <Input
-                  type={"text"}
-                  value={phoneCorporate}
-                  name={"Corporate phone"}
-                  onChange={(e) => setPhone2(e.target.value)}
-                  required={true}
-                />
-              </label>
-            </div>
-            <label>
-              <span>Email: </span>
+            <FlexCol>
               <Input
-                type={"text"}
-                value={email}
-                name={"Email"}
-                onChange={(e) => setEmail(e.target.value)}
+                value={phonePersonal}
+                name={"Personal phone"}
+                showLabel={true}
+                onChange={(e) => setPhone1(e.target.value)}
                 required={true}
               />
-            </label>
+              <Input
+                value={phoneCorporate}
+                name={"Corporate phone"}
+                showLabel={true}
+                onChange={(e) => setPhone2(e.target.value)}
+                required={true}
+              />
+            </FlexCol>
+            <Input
+              value={email}
+              name={"Email"}
+              showLabel={true}
+              onChange={(e) => setEmail(e.target.value)}
+              required={true}
+            />
           </div>
-          <div className="flex flex-col basis-1/6">
-            <button
-              className="border-2 rounded-lg px-3 py-1 border-slate-500 hover:bg-slate-500 hover:text-white"
-              onClick={() => setIsEditable(false)}
-            >
-              Close
-            </button>
-            <button
-              className="border-2 rounded-lg px-3 py-1 mt-3 border-sky-500 hover:bg-sky-500 hover:text-white"
-              type="submit"
-            >
-              Save
-            </button>
-          </div>
+          <FlexCol options={"basis-1/6"}>
+            <ButtonClose setFunction={setIsEditable} />
+            <ButtonSubmit text={"Save"} width={"w-full"} />
+          </FlexCol>
         </form>
       ) : (
         <div className="flex">

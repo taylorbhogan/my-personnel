@@ -1,6 +1,7 @@
 import { useState } from "react";
-import ButtonClose from "../AppUtils/ButtonClose";
+import ButtonCloseX from "../AppUtils/ButtonCloseX";
 import Input from "../AppUtils/Input";
+import ButtonSubmit from "../AppUtils/ButtonSubmit";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
 
 const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
@@ -59,13 +60,15 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
+        Authorization: `Bearer ${localStorage.getItem(
+          "MY_PERSONNEL_ACCESS_TOKEN"
+        )}`,
       },
       body: JSON.stringify(newEmployee),
     });
-    console.log('res',res);
+    console.log("res", res);
     if (res.ok) {
-      const {newEmployeeData} = await res.json();
+      const { newEmployeeData } = await res.json();
 
       const employeesObject = { ...employees };
       employeesObject[newEmployeeData._id] = newEmployeeData;
@@ -73,7 +76,6 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       setEmployees(employeesObject);
 
       setShowModal(false);
-
     } else {
       console.log("res", res);
     }
@@ -85,12 +87,11 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl">Create a New Employee Record</h1>
-      <ButtonClose setShowModal={setShowModal} />
+      <ButtonCloseX setFunction={setShowModal} />
       <div className="mt-4 bg-sky-100 rounded-lg p-4">
         <h2>Personal Info</h2>
         <div>
           <Input
-            type={"text"}
             value={firstName}
             name={"First Name"}
             onChange={(e) => setFirstName(e.target.value)}
@@ -98,14 +99,12 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
             autoFocus={true}
           />
           <Input
-            type={"text"}
             value={middleName}
             name={"Middle Name"}
             onChange={(e) => setMiddleName(e.target.value)}
             required={true}
           />
           <Input
-            type={"text"}
             value={lastName}
             name={"Last Name"}
             onChange={(e) => setLastName(e.target.value)}
@@ -113,7 +112,6 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
           />
         </div>
         <Input
-          type={"text"}
           value={imgUrl}
           name={"Headshot url"}
           onChange={(e) => setImgUrl(e.target.value)}
@@ -124,7 +122,6 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
         <h2>Company Info</h2>
         <div>
           <Input
-            type={"text"}
             value={title}
             name={"Title"}
             onChange={(e) => setTitle(e.target.value)}
@@ -159,44 +156,37 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       </div>
       <div className="mt-4 bg-sky-100 rounded-lg p-4">
         <h2>Address Info</h2>
-
         <Input
-          type={"text"}
           value={street1}
           name={"Street Address"}
           onChange={(e) => setStreet1(e.target.value)}
           required={true}
         />
         <Input
-          type={"text"}
           value={street2}
           name={"Apt/Suite/Other"}
           onChange={(e) => setStreet2(e.target.value)}
           required={true}
         />
         <Input
-          type={"text"}
           value={city}
           name={"City"}
           onChange={(e) => setCity(e.target.value)}
           required={true}
         />
         <Input
-          type={"text"}
           value={state}
           name={"State"}
           onChange={(e) => setState(e.target.value)}
           required={true}
         />
         <Input
-          type={"text"}
           value={zip}
           name={"ZIP Code"}
           onChange={(e) => setZip(e.target.value)}
           required={true}
         />
         <Input
-          type={"text"}
           value={country}
           name={"Country"}
           onChange={(e) => setCountry(e.target.value)}
@@ -206,21 +196,18 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       <div className="mt-4 bg-sky-100 rounded-lg p-4">
         <h2>Contact Info</h2>
         <Input
-          type={"text"}
           value={phonePersonal}
           name={"Personal Phone"}
           onChange={(e) => setPhone1(e.target.value)}
           required={true}
         />
         <Input
-          type={"text"}
           value={phoneCorporate}
           name={"Corporate Phone"}
           onChange={(e) => setPhone2(e.target.value)}
           required={true}
         />
         <Input
-          type={"text"}
           value={email}
           name={"Email"}
           onChange={(e) => setEmail(e.target.value)}
@@ -230,19 +217,13 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       <div className="mt-4 bg-sky-100 rounded-lg p-4">
         <h2>Tax Documents</h2>
         <Input
-          type={"text"}
           name={"Tax Document url"}
           onChange={(e) => setTaxDocument(e.target.value)}
           required={true}
         />
       </div>
       <div className="flex justify-center my-6">
-        <button
-          className="border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white w-1/2"
-          type="submit"
-        >
-          Submit
-        </button>
+        <ButtonSubmit text={"Submit"} width={"w-1/2"} />
       </div>
     </form>
   );

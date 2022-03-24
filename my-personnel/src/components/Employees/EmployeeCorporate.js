@@ -3,6 +3,9 @@ import ButtonEdit from "../AppUtils/ButtonEdit";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
+import ButtonSubmit from "../AppUtils/ButtonSubmit";
+import ButtonClose from "../AppUtils/ButtonClose";
+import FlexCol from "../AppUtils/FlexCol";
 
 const Corporate = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -28,8 +31,9 @@ const Corporate = ({ employee, employees, setEmployees }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
-
+        Authorization: `Bearer ${localStorage.getItem(
+          "MY_PERSONNEL_ACCESS_TOKEN"
+        )}`,
       },
       body: JSON.stringify(employeeObject),
     });
@@ -50,52 +54,38 @@ const Corporate = ({ employee, employees, setEmployees }) => {
     <div className="">
       {isEditable ? (
         <form className="flex" onSubmit={handleSubmit}>
-          <div className="flex flex-col basis-5/6">
-            <label>
-              <span>First Name: </span>
-              <Input
-                type={"text"}
-                value={firstName}
-                name={"First Name"}
-                onChange={(e) => setFirstName(e.target.value)}
-                required={true}
-                autoFocus={true}
-              />
-            </label>
-            <label>
-              <span>Middle Name: </span>
-              <Input
-                type={"text"}
-                value={middleName}
-                name={"Middle Name"}
-                onChange={(e) => setMiddleName(e.target.value)}
-                required={true}
-              />
-            </label>
-            <label>
-              <span>Last Name: </span>
-              <Input
-                type={"text"}
-                value={lastName}
-                placeholder={"Last Name"}
-                ariaLabel={"Last Name"}
-                onChange={(e) => setLastName(e.target.value)}
-                required={true}
-              />
-            </label>
-
-            <label>
-              <span>Title: </span>
-              <Input
-                type={"text"}
-                value={title}
-                Name={"Title"}
-                onChange={(e) => setTitle(e.target.value)}
-                required={true}
-              />
-            </label>
+          <FlexCol options={"basis-5/6"}>
+            <Input
+              value={firstName}
+              name={"First Name"}
+              onChange={(e) => setFirstName(e.target.value)}
+              showLabel={true}
+              required={true}
+              autoFocus={true}
+            />
+            <Input
+              value={middleName}
+              name={"Middle Name"}
+              onChange={(e) => setMiddleName(e.target.value)}
+              showLabel={true}
+              required={true}
+            />
+            <Input
+              value={lastName}
+              name={"Last Name"}
+              onChange={(e) => setLastName(e.target.value)}
+              showLabel={true}
+              required={true}
+            />
+            <Input
+              value={title}
+              name={"Title"}
+              onChange={(e) => setTitle(e.target.value)}
+              showLabel={true}
+              required={true}
+            />
             <label className="m-4">
-              <span>Admin: </span>
+              <span>Admin?</span>
               <input
                 type={"checkbox"}
                 checked={isAdmin}
@@ -105,27 +95,17 @@ const Corporate = ({ employee, employees, setEmployees }) => {
               ></input>
             </label>
             <label>
-              <span>Department: </span>
+              <span>Department:</span>
               <DropdownDepartment
                 value={department}
                 setFunction={(department) => setDepartment(department)}
               />
             </label>
-          </div>
-          <div className="flex flex-col basis-1/6">
-            <button
-              className="border-2 rounded-lg px-3 py-1 border-slate-500 hover:bg-slate-500 hover:text-white"
-              onClick={() => setIsEditable(false)}
-            >
-              Close
-            </button>
-            <button
-              className="border-2 rounded-lg px-3 py-1 mt-3 border-sky-500 hover:bg-sky-500 hover:text-white"
-              type="submit"
-            >
-              Save
-            </button>
-          </div>
+          </FlexCol>
+          <FlexCol options={"basis-1/6"}>
+            <ButtonClose setFunction={setIsEditable} />
+            <ButtonSubmit text={"Save"} width={"w-full"} />
+          </FlexCol>
         </form>
       ) : (
         <div className="flex">

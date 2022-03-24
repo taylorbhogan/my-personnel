@@ -1,7 +1,10 @@
 import { useState } from "react";
 import ButtonEdit from "../AppUtils/ButtonEdit";
+import ButtonSubmit from "../AppUtils/ButtonSubmit";
+import ButtonClose from "../AppUtils/ButtonClose";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
+import FlexCol from "../AppUtils/FlexCol";
 
 const Address = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -27,8 +30,9 @@ const Address = ({ employee, employees, setEmployees }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
-
+        Authorization: `Bearer ${localStorage.getItem(
+          "MY_PERSONNEL_ACCESS_TOKEN"
+        )}`,
       },
       body: JSON.stringify(employeeObject),
     });
@@ -50,84 +54,56 @@ const Address = ({ employee, employees, setEmployees }) => {
       <h3 className="text-2xl pb-3">Address</h3>
       {isEditable ? (
         <form onSubmit={handleSubmit} className="flex">
-          <div className="flex flex-col basis-5/6">
-            <label>
-              <span>Street Address:</span>
-              <Input
-                type={"text"}
-                value={street1}
-                name={"Street Address"}
-                onChange={(e) => setStreet1(e.target.value)}
-                required={true}
-              />
-            </label>
-            <label>
-              <span>Apt/Suite/Other:</span>
-              <Input
-                type={"text"}
-                value={street2}
-                name={"Apt/Suite/Other"}
-                onChange={(e) => setStreet2(e.target.value)}
-                required={true}
-              />
-            </label>
+          <FlexCol options={"basis-5/6"}>
+            <Input
+              value={street1}
+              name={"Street Address"}
+              showLabel={true}
+              onChange={(e) => setStreet1(e.target.value)}
+              required={true}
+            />
+            <Input
+              value={street2}
+              name={"Apt/Suite/Other"}
+              showLabel={true}
+              onChange={(e) => setStreet2(e.target.value)}
+              required={true}
+            />
             <div>
-              <label>
-                <span>City:</span>
-                <Input
-                  type={"text"}
-                  value={city}
-                  name={"City"}
-                  onChange={(e) => setCity(e.target.value)}
-                  required={true}
-                />
-              </label>
-              <label>
-                <span>State:</span>
-                <Input
-                  type={"text"}
-                  value={state}
-                  name={"State"}
-                  onChange={(e) => setState(e.target.value)}
-                  required={true}
-                />
-              </label>
+              <Input
+                value={city}
+                name={"City"}
+                showLabel={true}
+                onChange={(e) => setCity(e.target.value)}
+                required={true}
+              />
+              <Input
+                value={state}
+                name={"State"}
+                showLabel={true}
+                onChange={(e) => setState(e.target.value)}
+                required={true}
+              />
             </div>
-            <label>
-              <span>Zip:</span>
-              <Input
-                type={"text"}
-                value={zip}
-                name={"ZIP Code"}
-                onChange={(e) => setZip(e.target.value)}
-                required={true}
-              />
-            </label>
-            <label>
-              <span>Country:</span>
-              <Input
-                type={"text"}
-                value={country}
-                name={"Country"}
-                onChange={(e) => setCountry(e.target.value)}
-                required={true}
-              />
-            </label>
-          </div>
-          <div className="flex flex-col basis-1/6">
-            <button
-              className="border-2 rounded-lg px-3 py-1 border-slate-500 hover:bg-slate-500 hover:text-white"
-              onClick={() => setIsEditable(false)}
-            >
-              Close
-            </button>
-            <button
-              className="border-2 rounded-lg px-3 py-1 mt-3 border-sky-500 hover:bg-sky-500 hover:text-white"
-              type="submit"
-            >
-              Save
-            </button>
-          </div>
+            <Input
+              value={zip}
+              name={"ZIP Code"}
+              showLabel={true}
+              onChange={(e) => setZip(e.target.value)}
+              required={true}
+            />
+            <Input
+              value={country}
+              name={"Country"}
+              showLabel={true}
+              onChange={(e) => setCountry(e.target.value)}
+              required={true}
+            />
+          </FlexCol>
+          <FlexCol options={"basis-1/6"}>
+            <ButtonClose setFunction={setIsEditable} />
+            <ButtonSubmit text={"Save"} width={"w-full"} />
+          </FlexCol>
         </form>
       ) : (
         <div className="flex">

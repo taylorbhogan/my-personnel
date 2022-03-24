@@ -1,12 +1,10 @@
-import { GrClose } from "react-icons/gr";
-
 const ButtonClose = ({ setFunction }) => {
   return (
     <button
+      className="border-2 rounded-lg px-3 py-1 mb-3 border-slate-500 hover:bg-slate-500 hover:text-white"
       onClick={() => setFunction(false)}
-      className="absolute top-0 right-0 m-4"
     >
-      <GrClose />
+      Close
     </button>
   );
 };
