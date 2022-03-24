@@ -3,6 +3,7 @@ import ButtonEdit from "../AppUtils/ButtonEdit";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
+import ButtonSubmit from "../AppUtils/ButtonSubmit";
 
 const Corporate = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -28,8 +29,9 @@ const Corporate = ({ employee, employees, setEmployees }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
-
+        Authorization: `Bearer ${localStorage.getItem(
+          "MY_PERSONNEL_ACCESS_TOKEN"
+        )}`,
       },
       body: JSON.stringify(employeeObject),
     });
@@ -54,7 +56,6 @@ const Corporate = ({ employee, employees, setEmployees }) => {
             <label>
               <span>First Name: </span>
               <Input
-                type={"text"}
                 value={firstName}
                 name={"First Name"}
                 onChange={(e) => setFirstName(e.target.value)}
@@ -65,7 +66,6 @@ const Corporate = ({ employee, employees, setEmployees }) => {
             <label>
               <span>Middle Name: </span>
               <Input
-                type={"text"}
                 value={middleName}
                 name={"Middle Name"}
                 onChange={(e) => setMiddleName(e.target.value)}
@@ -75,7 +75,6 @@ const Corporate = ({ employee, employees, setEmployees }) => {
             <label>
               <span>Last Name: </span>
               <Input
-                type={"text"}
                 value={lastName}
                 placeholder={"Last Name"}
                 ariaLabel={"Last Name"}
@@ -87,7 +86,6 @@ const Corporate = ({ employee, employees, setEmployees }) => {
             <label>
               <span>Title: </span>
               <Input
-                type={"text"}
                 value={title}
                 Name={"Title"}
                 onChange={(e) => setTitle(e.target.value)}
@@ -114,17 +112,12 @@ const Corporate = ({ employee, employees, setEmployees }) => {
           </div>
           <div className="flex flex-col basis-1/6">
             <button
-              className="border-2 rounded-lg px-3 py-1 border-slate-500 hover:bg-slate-500 hover:text-white"
+              className="border-2 rounded-lg px-3 py-1 mb-3 border-slate-500 hover:bg-slate-500 hover:text-white"
               onClick={() => setIsEditable(false)}
             >
               Close
             </button>
-            <button
-              className="border-2 rounded-lg px-3 py-1 mt-3 border-sky-500 hover:bg-sky-500 hover:text-white"
-              type="submit"
-            >
-              Save
-            </button>
+            <ButtonSubmit text={"Save"} width={"w-full"}/>
           </div>
         </form>
       ) : (

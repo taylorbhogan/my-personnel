@@ -1,5 +1,5 @@
 const Input = ({
-  type,
+  type = 'text',
   value,
   name,
   onChange,

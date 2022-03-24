@@ -2,6 +2,7 @@ import { useState } from "react";
 import InfoField from "../AppUtils/InfoField";
 import Input from "../AppUtils/Input";
 import ButtonEdit from "../AppUtils/ButtonEdit";
+import ButtonSubmit from "../AppUtils/ButtonSubmit";
 
 const Contact = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -21,7 +22,9 @@ const Contact = ({ employee, employees, setEmployees }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
+        Authorization: `Bearer ${localStorage.getItem(
+          "MY_PERSONNEL_ACCESS_TOKEN"
+        )}`,
       },
       body: JSON.stringify(employeeObject),
     });
@@ -48,7 +51,6 @@ const Contact = ({ employee, employees, setEmployees }) => {
               <label>
                 <span>Personal Phone:</span>
                 <Input
-                  type={"text"}
                   value={phonePersonal}
                   name={"Personal phone"}
                   onChange={(e) => setPhone1(e.target.value)}
@@ -58,7 +60,6 @@ const Contact = ({ employee, employees, setEmployees }) => {
               <label>
                 <span>Corporate Phone: </span>
                 <Input
-                  type={"text"}
                   value={phoneCorporate}
                   name={"Corporate phone"}
                   onChange={(e) => setPhone2(e.target.value)}
@@ -69,7 +70,6 @@ const Contact = ({ employee, employees, setEmployees }) => {
             <label>
               <span>Email: </span>
               <Input
-                type={"text"}
                 value={email}
                 name={"Email"}
                 onChange={(e) => setEmail(e.target.value)}
@@ -79,17 +79,12 @@ const Contact = ({ employee, employees, setEmployees }) => {
           </div>
           <div className="flex flex-col basis-1/6">
             <button
-              className="border-2 rounded-lg px-3 py-1 border-slate-500 hover:bg-slate-500 hover:text-white"
+              className="border-2 rounded-lg px-3 py-1 mb-3 border-slate-500 hover:bg-slate-500 hover:text-white"
               onClick={() => setIsEditable(false)}
             >
               Close
             </button>
-            <button
-              className="border-2 rounded-lg px-3 py-1 mt-3 border-sky-500 hover:bg-sky-500 hover:text-white"
-              type="submit"
-            >
-              Save
-            </button>
+            <ButtonSubmit text={"Save"} width={"w-full"}/>
           </div>
         </form>
       ) : (

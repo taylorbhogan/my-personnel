@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ButtonEdit from "../AppUtils/ButtonEdit";
+import ButtonSubmit from "../AppUtils/ButtonSubmit";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 
@@ -27,8 +28,9 @@ const Address = ({ employee, employees, setEmployees }) => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem('MY_PERSONNEL_ACCESS_TOKEN')}`
-
+        Authorization: `Bearer ${localStorage.getItem(
+          "MY_PERSONNEL_ACCESS_TOKEN"
+        )}`,
       },
       body: JSON.stringify(employeeObject),
     });
@@ -54,7 +56,6 @@ const Address = ({ employee, employees, setEmployees }) => {
             <label>
               <span>Street Address:</span>
               <Input
-                type={"text"}
                 value={street1}
                 name={"Street Address"}
                 onChange={(e) => setStreet1(e.target.value)}
@@ -64,7 +65,6 @@ const Address = ({ employee, employees, setEmployees }) => {
             <label>
               <span>Apt/Suite/Other:</span>
               <Input
-                type={"text"}
                 value={street2}
                 name={"Apt/Suite/Other"}
                 onChange={(e) => setStreet2(e.target.value)}
@@ -75,7 +75,6 @@ const Address = ({ employee, employees, setEmployees }) => {
               <label>
                 <span>City:</span>
                 <Input
-                  type={"text"}
                   value={city}
                   name={"City"}
                   onChange={(e) => setCity(e.target.value)}
@@ -85,7 +84,6 @@ const Address = ({ employee, employees, setEmployees }) => {
               <label>
                 <span>State:</span>
                 <Input
-                  type={"text"}
                   value={state}
                   name={"State"}
                   onChange={(e) => setState(e.target.value)}
@@ -96,7 +94,6 @@ const Address = ({ employee, employees, setEmployees }) => {
             <label>
               <span>Zip:</span>
               <Input
-                type={"text"}
                 value={zip}
                 name={"ZIP Code"}
                 onChange={(e) => setZip(e.target.value)}
@@ -106,7 +103,6 @@ const Address = ({ employee, employees, setEmployees }) => {
             <label>
               <span>Country:</span>
               <Input
-                type={"text"}
                 value={country}
                 name={"Country"}
                 onChange={(e) => setCountry(e.target.value)}
@@ -116,17 +112,12 @@ const Address = ({ employee, employees, setEmployees }) => {
           </div>
           <div className="flex flex-col basis-1/6">
             <button
-              className="border-2 rounded-lg px-3 py-1 border-slate-500 hover:bg-slate-500 hover:text-white"
+              className="border-2 rounded-lg px-3 py-1 mb-3 border-slate-500 hover:bg-slate-500 hover:text-white"
               onClick={() => setIsEditable(false)}
             >
               Close
             </button>
-            <button
-              className="border-2 rounded-lg px-3 py-1 mt-3 border-sky-500 hover:bg-sky-500 hover:text-white"
-              type="submit"
-            >
-              Save
-            </button>
+            <ButtonSubmit text={"Save"} width={"w-full"} />
           </div>
         </form>
       ) : (
