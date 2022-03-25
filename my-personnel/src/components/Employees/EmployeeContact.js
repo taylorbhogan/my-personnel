@@ -2,7 +2,6 @@ import { useState } from "react";
 import InfoField from "../AppUtils/InfoField";
 import Input from "../AppUtils/Input";
 import ButtonSubmit from "../AppUtils/ButtonSubmit";
-import ButtonClose from "../AppUtils/ButtonClose";
 import FlexCol from "../AppUtils/FlexCol";
 import Button from "../AppUtils/Button";
 
@@ -74,7 +73,12 @@ const Contact = ({ employee, employees, setEmployees }) => {
             />
           </div>
           <FlexCol options={"basis-1/6"}>
-            <ButtonClose setFunction={setIsEditable} />
+            <Button
+              options={"mb-3"}
+              text={"Close"}
+              color={"gray"}
+              onClick={() => setIsEditable(false)}
+            />
             <ButtonSubmit text={"Save"} width={"w-full"} />
           </FlexCol>
         </form>

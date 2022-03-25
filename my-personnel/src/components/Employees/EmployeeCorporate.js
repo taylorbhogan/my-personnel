@@ -3,7 +3,6 @@ import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
 import ButtonSubmit from "../AppUtils/ButtonSubmit";
-import ButtonClose from "../AppUtils/ButtonClose";
 import FlexCol from "../AppUtils/FlexCol";
 import InputBundler from "../AppUtils/InputBundler";
 import Form from "../AppUtils/Form";
@@ -112,7 +111,12 @@ const Corporate = ({ employee, employees, setEmployees }) => {
             </div>
           </FlexCol>
           <FlexCol options={"basis-1/6"}>
-            <ButtonClose setFunction={setIsEditable} />
+            <Button
+              options={"mb-3"}
+              text={"Close"}
+              color={"gray"}
+              onClick={() => setIsEditable(false)}
+            />
             <ButtonSubmit text={"Save"} width={"w-full"} />
           </FlexCol>
         </Form>
