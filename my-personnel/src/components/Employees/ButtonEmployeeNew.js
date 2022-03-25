@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal } from "../../context/Modal";
+import Button from "../AppUtils/Button";
 import NewEmployeeForm from "./NewEmployeeForm";
 
 const ButtonEmployeeNew = ({ employees, setEmployees }) => {
@@ -11,12 +12,7 @@ const ButtonEmployeeNew = ({ employees, setEmployees }) => {
 
   return (
     <>
-      <button
-        className="border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white"
-        onClick={handleClick}
-      >
-        Add new employee
-      </button>
+      <Button text={"Add new employee"} onClick={handleClick} />
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <NewEmployeeForm

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ButtonEdit from "../AppUtils/ButtonEdit";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
@@ -8,6 +7,7 @@ import ButtonClose from "../AppUtils/ButtonClose";
 import FlexCol from "../AppUtils/FlexCol";
 import InputBundler from "../AppUtils/InputBundler";
 import Form from "../AppUtils/Form";
+import Button from "../AppUtils/Button";
 
 const Corporate = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -127,7 +127,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
             <InfoField label={"EmployeeId: "} value={employee._id} />
           </div>
           <FlexCol options={"basis-1/6"}>
-            <ButtonEdit setIsEditable={setIsEditable} />
+            <Button onClick={() => setIsEditable(true)} text={"edit"} />
           </FlexCol>
         </div>
       )}
