@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ControlPanel from "./ControlPanel";
 import EmployeeLink from "./EmployeeLink";
-import LoadingContent from "../AppUtils/LoadingContent";
-import ContentNotFound from "../AppUtils/ContentNotFound";
+import LoadingContentGif from "../AppUtils/LoadingContentGif";
+import NoRecordsFound from "../AppUtils/NoRecordsFound";
 import Errors from "../AppUtils/Errors";
 
 const Employees = ({ employees, setEmployees }) => {
@@ -49,10 +49,10 @@ const Employees = ({ employees, setEmployees }) => {
             <EmployeeLink key={employee._id} employee={employee} />
           ))
         ) : (
-          <ContentNotFound />
+          <NoRecordsFound />
         )
       ) : (
-        <LoadingContent />
+        <LoadingContentGif />
       )}
     </div>
   );
