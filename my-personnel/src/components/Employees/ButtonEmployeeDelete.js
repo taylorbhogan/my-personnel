@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ButtonCloseX from "../AppUtils/ButtonCloseX";
+import ButtonX from "../AppUtils/ButtonX";
 import { Modal } from "../../context/Modal";
 import FlexCol from "../AppUtils/FlexCol";
 import Button from "../AppUtils/Button";
@@ -49,7 +49,7 @@ const ButtonEmployeeDelete = ({ id, employees, setEmployees }) => {
           <FlexCol
             options={"items-center justify-around bg-gray-100 rounded-lg p-48"}
           >
-            <ButtonCloseX setFunction={setShowModal} />
+            <ButtonX setFunction={setShowModal} />
             <h2>Deleting is permanent. Are you sure you'd like to proceed?</h2>
             <Button
               onClick={handleDelete}

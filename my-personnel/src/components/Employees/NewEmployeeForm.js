@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ButtonCloseX from "../AppUtils/ButtonCloseX";
+import ButtonX from "../AppUtils/ButtonX";
 import Input from "../AppUtils/Input";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
 import InputBundler from "../AppUtils/InputBundler";
@@ -92,7 +92,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl">Create a New Employee Record</h1>
-      <ButtonCloseX setFunction={setShowModal} />
+      <ButtonX setFunction={setShowModal} />
       <section className={sectionClassName}>
         <h2>Personal Info</h2>
         <InputBundler>

@@ -1,6 +1,6 @@
 import { GrClose } from "react-icons/gr";
 
-const ButtonCloseX = ({ setFunction }) => {
+const ButtonX = ({ setFunction }) => {
   return (
     <button
       type="button"
@@ -12,4 +12,4 @@ const ButtonCloseX = ({ setFunction }) => {
   );
 };
 
-export default ButtonCloseX;
+export default ButtonX;
