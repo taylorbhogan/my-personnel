@@ -55,7 +55,7 @@ const Employee = ({ employees, setEmployees }) => {
       <Errors errors={errors} />
       {/* only render the employee info if employee (loading from Employees or the useEffect fetch was successful) */}
       {employee && (
-        <div className="container mx-auto flex mt-24 p-6 border-4 rounded-lg border-sky-500">
+        <div className="container mx-auto flex flex-col lg:flex-row gap-8 mt-24 p-6 border-4 rounded-lg border-sky-500">
           <FlexCol options={"items-center basis-1/3"}>
             <img
               src={employee.imgUrl}
@@ -69,7 +69,7 @@ const Employee = ({ employees, setEmployees }) => {
               />
             </div>
           </FlexCol>
-          <div className="basis-2/3 pl-8">
+          <div className="basis-2/3">
             <EmployeeCorporate
               employee={employee}
               employees={employees}

@@ -83,7 +83,8 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
     }
   };
 
-  const sectionClassName = "border-2 border-sky-500 rounded-lg p-4 flex flex-col"
+  const sectionClassName =
+    "border-2 border-sky-500 rounded-lg p-8 flex flex-col";
 
   return (
     <form
@@ -234,9 +235,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
           />
         </InputBundler>
       </section>
-      <div className="flex justify-center my-6">
-        <ButtonSubmit text={"Submit"} width={"w-1/2"} />
-      </div>
+      <ButtonSubmit text={"Submit"} width={"w-1/2"} space={true} />
     </form>
   );
 };

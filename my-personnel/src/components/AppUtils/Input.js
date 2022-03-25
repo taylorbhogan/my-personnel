@@ -1,4 +1,4 @@
-export const INPUT_ATTRIBUTES = "m-4 py-1 px-2 leading-10 bg-sky-100 rounded basis-full"
+export const INPUT_ATTRIBUTES = "my-4 py-1 px-2 leading-10 bg-sky-100 rounded basis-full"
 
 const Input = ({
   type = "text",

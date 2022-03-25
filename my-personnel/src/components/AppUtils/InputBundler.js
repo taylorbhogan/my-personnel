@@ -3,7 +3,7 @@
 
 const InputBundler = ({children}) => {
   return (
-    <div className="basis-full flex flex-col lg:flex-row">
+    <div className="basis-full flex flex-col lg:flex-row gap-2">
       {children}
     </div>
   )
