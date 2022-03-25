@@ -28,7 +28,7 @@ const NavBar = ({ setEmployees }) => {
         {levelCount(pathname) >= 2 && <BackLink />}
       </div>
       <div className="flex gap-4 items-center">
-        <Link className={{ buttonStyle }} to="login">
+        <Link className={buttonStyle} to="login">
           Log In
         </Link>
         <DemoLogin />
