@@ -14,7 +14,6 @@ const LogoutButton = ({ setEmployees }) => {
     <Button
       text={"Log Out"}
       onClick={handleLogout}
-      options={"absolute top-0 right-0 m-6"}
       color={"red"}
     />
   );

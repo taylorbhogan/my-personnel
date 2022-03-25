@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import HomeLink from "./HomeLink";
 import LogoutButton from "../Auth/LogoutButton";
-import LoginButton from "../Auth/LoginButton";
 import BackLink from "./BackLink";
+import DemoLogin from "../Auth/DemoLogin";
 
 const NavBar = ({ setEmployees }) => {
   const location = useLocation();
@@ -18,12 +18,22 @@ const NavBar = ({ setEmployees }) => {
     return count;
   };
 
+  const buttonStyle =
+    "border-2 rounded-lg px-3 py-1 border-sky-500 hover:bg-sky-500 hover:text-white";
+
   return (
-    <nav>
-      {pathname !== "/" && <HomeLink />}
-      {levelCount(pathname) >= 2 && <BackLink />}
-      <LoginButton />
-      <LogoutButton setEmployees={setEmployees} />
+    <nav className="absolute top-0 w-full p-6 flex justify-between">
+      <div className="flex gap-4 items-center">
+        {pathname !== "/" && <HomeLink />}
+        {levelCount(pathname) >= 2 && <BackLink />}
+      </div>
+      <div className="flex gap-4 items-center">
+        <Link className={{ buttonStyle }} to="login">
+          Log In
+        </Link>
+        <DemoLogin />
+        <LogoutButton setEmployees={setEmployees} />
+      </div>
     </nav>
   );
 };

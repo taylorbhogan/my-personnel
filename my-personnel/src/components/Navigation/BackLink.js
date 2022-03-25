@@ -20,7 +20,6 @@ const BackLink = () => {
   return (
     <Link
       to={upOneLevel(location.pathname)}
-      className="absolute top-0 left-12 m-6"
       onMouseEnter={() => setBackHover(true)}
       onMouseLeave={() => setBackHover(false)}
     >

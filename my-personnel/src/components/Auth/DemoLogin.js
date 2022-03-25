@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import Button from '../AppUtils/Button';
 
-const LoginButton = () => {
+const DemoLogin = () => {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -29,11 +29,10 @@ const LoginButton = () => {
 
   return (
     <Button
-      text={"Log In"}
+      text={"Demo"}
       onClick={handleLogin}
-      options={"absolute top-0 right-24 m-6"}
     />
   );
 };
 
-export default LoginButton;
+export default DemoLogin;
