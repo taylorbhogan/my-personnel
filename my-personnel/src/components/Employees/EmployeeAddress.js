@@ -6,6 +6,7 @@ import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import FlexCol from "../AppUtils/FlexCol";
 import InputBundler from "../AppUtils/InputBundler";
+import Form from "../AppUtils/Form";
 
 const Address = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -54,7 +55,7 @@ const Address = ({ employee, employees, setEmployees }) => {
     <div className="">
       <h3 className="text-2xl pb-3">Address</h3>
       {isEditable ? (
-        <form onSubmit={handleSubmit} className="flex">
+        <Form onSubmit={handleSubmit}>
           <FlexCol options={"basis-5/6"}>
             <Input
               value={street1}
@@ -115,7 +116,7 @@ const Address = ({ employee, employees, setEmployees }) => {
             <ButtonClose setFunction={setIsEditable} />
             <ButtonSubmit text={"Save"} width={"w-full"} />
           </FlexCol>
-        </form>
+        </Form>
       ) : (
         <div className="flex">
           <div className="basis-5/6">

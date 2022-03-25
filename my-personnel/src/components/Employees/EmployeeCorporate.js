@@ -7,6 +7,7 @@ import ButtonSubmit from "../AppUtils/ButtonSubmit";
 import ButtonClose from "../AppUtils/ButtonClose";
 import FlexCol from "../AppUtils/FlexCol";
 import InputBundler from "../AppUtils/InputBundler";
+import Form from "../AppUtils/Form";
 
 const Corporate = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -54,7 +55,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
   return (
     <div className="">
       {isEditable ? (
-        <form className="flex" onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <FlexCol options={"basis-5/6"}>
             <InputBundler>
               <FlexCol options={"basis-full"}>
@@ -114,7 +115,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
             <ButtonClose setFunction={setIsEditable} />
             <ButtonSubmit text={"Save"} width={"w-full"} />
           </FlexCol>
-        </form>
+        </Form>
       ) : (
         <div className="flex">
           <div className="basis-5/6">
