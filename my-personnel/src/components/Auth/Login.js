@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import Input from "../AppUtils/Input";
 import Button from "../AppUtils/Button";
+import Form from "../AppUtils/Form";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <div className="h-full flex flex-col justify-center">
-      <form className="border-4 border-sky-500 rounded-lg p-16 container mx-auto flex flex-col justify-center items-stretch">
+    <div className="h-full flex items-center justify-center">
+      <Form options={"basis-1/3"}>
         <h1 className="text-3xl mb-6">Welcome Back</h1>
         <Input
           value={email}
@@ -28,7 +29,7 @@ const Login = () => {
           type={"submit"}
           spaceAndCenter={true}
         />
-      </form>
+      </Form>
     </div>
   );
 };

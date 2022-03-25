@@ -53,7 +53,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
   return (
     <div className="">
       {isEditable ? (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} flip={true}>
           <FlexCol options={"basis-5/6"}>
             <InputBundler>
               <FlexCol options={"basis-full"}>

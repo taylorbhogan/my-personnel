@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ButtonX from "../AppUtils/ButtonX";
+import Form from "../AppUtils/Form";
 import Input from "../AppUtils/Input";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
 import InputBundler from "../AppUtils/InputBundler";
@@ -87,8 +88,9 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
     "border-2 border-sky-500 rounded-lg p-8 flex flex-col";
 
   return (
-    <form
-      className="container flex gap-8 flex-col mx-auto p-16 border-4 border-sky-500 bg-white rounded-lg overflow-auto h-8vh"
+    <Form
+      options={"bg-white overflow-auto h-8vh"}
+      gap={"gap-8"}
       onSubmit={handleSubmit}
     >
       <h1 className="text-3xl">Create a New Employee Record</h1>
@@ -241,7 +243,7 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
         type={"submit"}
         spaceAndCenter={true}
       />
-    </form>
+    </Form>
   );
 };
 

@@ -53,7 +53,7 @@ const Address = ({ employee, employees, setEmployees }) => {
     <div className="">
       <h3 className="text-2xl pb-3">Address</h3>
       {isEditable ? (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} flip={true}>
           <FlexCol options={"basis-5/6"}>
             <Input
               value={street1}

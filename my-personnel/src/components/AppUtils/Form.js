@@ -1,6 +1,20 @@
-const Form = ({ children, onSubmit }) => {
+// Designed for use within className="h-full flex items-center justify-center"
+// n.b. options specifically requires a flex-basis
+// to override border, set border=true, then set your own in options
+
+const Form = ({
+  children,
+  onSubmit,
+  options,
+  border = "border-4 border-sky-500",
+  gap = "gap-2",
+  flip = false
+}) => {
   return (
-    <form className="flex flex-col md:flex-row gap-2" onSubmit={onSubmit}>
+    <form
+      className={`${border} rounded-lg flex flex-col ${gap} p-16 ${flip && "md:flex-row"} ${options}`}
+      onSubmit={onSubmit}
+    >
       {children}
     </form>
   );

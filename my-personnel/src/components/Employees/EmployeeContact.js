@@ -1,5 +1,6 @@
 import { useState } from "react";
 import InfoField from "../AppUtils/InfoField";
+import Form from "../AppUtils/Form";
 import Input from "../AppUtils/Input";
 import FlexCol from "../AppUtils/FlexCol";
 import Button from "../AppUtils/Button";
@@ -45,7 +46,7 @@ const Contact = ({ employee, employees, setEmployees }) => {
     <div>
       <h3 className="text-2xl pb-3">Contact</h3>
       {isEditable ? (
-        <form className="flex" onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} flip={true}>
           <div className="flex flex-col basis-5/6">
             <FlexCol>
               <Input
@@ -80,7 +81,7 @@ const Contact = ({ employee, employees, setEmployees }) => {
             />
             <Button text={"Save"} options={"w-full"} type={"submit"} />
           </FlexCol>
-        </form>
+        </Form>
       ) : (
         <div className="flex">
           <div className="flex basis-5/6">
