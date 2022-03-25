@@ -1,5 +1,4 @@
 import { useState } from "react";
-import ButtonSubmit from "../AppUtils/ButtonSubmit";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import FlexCol from "../AppUtils/FlexCol";
@@ -118,7 +117,7 @@ const Address = ({ employee, employees, setEmployees }) => {
               color={"gray"}
               onClick={() => setIsEditable(false)}
             />
-            <ButtonSubmit text={"Save"} width={"w-full"} />
+            <Button text={"Save"} options={"w-full"} type={"submit"} />
           </FlexCol>
         </Form>
       ) : (

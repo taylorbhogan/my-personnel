@@ -1,7 +1,6 @@
 import { useState } from "react";
 import InfoField from "../AppUtils/InfoField";
 import Input from "../AppUtils/Input";
-import ButtonSubmit from "../AppUtils/ButtonSubmit";
 import FlexCol from "../AppUtils/FlexCol";
 import Button from "../AppUtils/Button";
 
@@ -79,7 +78,7 @@ const Contact = ({ employee, employees, setEmployees }) => {
               color={"gray"}
               onClick={() => setIsEditable(false)}
             />
-            <ButtonSubmit text={"Save"} width={"w-full"} />
+            <Button text={"Save"} options={"w-full"} type={"submit"} />
           </FlexCol>
         </form>
       ) : (

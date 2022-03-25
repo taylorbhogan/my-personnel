@@ -2,7 +2,6 @@ import { useState } from "react";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
-import ButtonSubmit from "../AppUtils/ButtonSubmit";
 import FlexCol from "../AppUtils/FlexCol";
 import InputBundler from "../AppUtils/InputBundler";
 import Form from "../AppUtils/Form";
@@ -117,7 +116,7 @@ const Corporate = ({ employee, employees, setEmployees }) => {
               color={"gray"}
               onClick={() => setIsEditable(false)}
             />
-            <ButtonSubmit text={"Save"} width={"w-full"} />
+            <Button text={"Save"} options={"w-full"} type={"submit"} />
           </FlexCol>
         </Form>
       ) : (

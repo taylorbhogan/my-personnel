@@ -1,4 +1,4 @@
-import ButtonSubmit from "../AppUtils/ButtonSubmit";
+import Button from "../AppUtils/Button";
 import Input from "../AppUtils/Input";
 
 const Signup = () => {
@@ -7,10 +7,15 @@ const Signup = () => {
       <form>
         <Input />
         <Input />
-        <ButtonSubmit text={"Sign Up"} width={"w-1/2"} space={true}/>
+        <Button
+          text={"Sign Up"}
+          options={"w-1/2"}
+          type={"submit"}
+          spaceAndCenter={true}
+        />
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default Signup;

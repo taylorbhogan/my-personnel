@@ -1,10 +1,10 @@
 import { useState } from "react";
 import ButtonCloseX from "../AppUtils/ButtonCloseX";
 import Input from "../AppUtils/Input";
-import ButtonSubmit from "../AppUtils/ButtonSubmit";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
 import InputBundler from "../AppUtils/InputBundler";
 import { INPUT_ATTRIBUTES } from "../AppUtils/Input";
+import Button from "../AppUtils/Button";
 
 const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
   const [firstName, setFirstName] = useState("");
@@ -235,7 +235,12 @@ const NewEmployeeForm = ({ employees, setEmployees, setShowModal }) => {
           />
         </InputBundler>
       </section>
-      <ButtonSubmit text={"Submit"} width={"w-1/2"} space={true} />
+      <Button
+        text={"Submit"}
+        options={"w-1/2"}
+        type={"submit"}
+        spaceAndCenter={true}
+      />
     </form>
   );
 };

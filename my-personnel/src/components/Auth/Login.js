@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "../AppUtils/Input";
-import ButtonSubmit from "../AppUtils/ButtonSubmit";
+import Button from "../AppUtils/Button";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,7 +22,12 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
           required={true}
         />
-        <ButtonSubmit text={"Log In"} width={"w-1/2"} space={true} />
+        <Button
+          text={"Log In"}
+          options={"w-1/2"}
+          type={"submit"}
+          spaceAndCenter={true}
+        />
       </form>
     </div>
   );
