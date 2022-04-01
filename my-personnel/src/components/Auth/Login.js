@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import Input from "../AppUtils/Input";
 import Button from "../AppUtils/Button";
 import Form from "../AppUtils/Form";
+import StyledLink from "../AppUtils/StyledLink";
+import Centerer from "../AppUtils/Centerer";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   return (
-    <div className="h-full flex items-center justify-center">
-      <Form options={"basis-1/3"}>
+    <Centerer width={"basis-1/3"} fullScreen={true}>
+      <Form padding={"px-16 pt-16 pb-2"} border={false}>
         <h1 className="text-3xl mb-6">Welcome Back</h1>
         <Input
           value={email}
@@ -30,7 +32,11 @@ const Login = () => {
           spaceAndCenter={true}
         />
       </Form>
-    </div>
+      <StyledLink
+        to={"/signup"}
+        text={"Or click here to sign up for an account."}
+      />
+    </Centerer>
   );
 };
 

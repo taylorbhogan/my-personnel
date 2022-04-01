@@ -7,12 +7,13 @@ const Form = ({
   onSubmit,
   options,
   border = "border-4 border-sky-500",
+  padding = "p-16",
   gap = "gap-2",
   flip = false
 }) => {
   return (
     <form
-      className={`${border} rounded-lg flex flex-col ${gap} p-16 ${flip && "md:flex-row"} ${options}`}
+      className={`${border} rounded-lg flex flex-col ${gap} ${padding} ${flip && "md:flex-row"} ${options}`}
       onSubmit={onSubmit}
     >
       {children}
