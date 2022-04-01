@@ -10,7 +10,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <Centerer width={"basis-1/3"} fullScreen={true}>
+    <Centerer width={"basis-1/3"} fullScreen={true} innerOptions={"pb-8 border-4 border-sky-500 rounded-lg"}>
       <Form padding={"px-16 pt-16 pb-2"} border={false}>
         <h1 className="text-3xl mb-6">Welcome Back</h1>
         <Input

@@ -10,7 +10,7 @@ const Signup = () => {
   const [password, setPassword] = useState("");
 
   return (
-    <Centerer fullScreen={true} width={"basis-1/3"}>
+    <Centerer fullScreen={true} width={"basis-1/3"} innerOptions={"pb-8 border-4 border-sky-500 rounded-lg"}>
       <Form options={"basis-1/3"} border={false}>
         <Input
           value={email}
