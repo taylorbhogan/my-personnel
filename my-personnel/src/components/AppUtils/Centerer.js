@@ -1,4 +1,4 @@
-const Centerer = ({ children, fullScreen = false, width, innerOptions = "" }) => {
+const Centerer = ({ children, fullScreen = false, width = "", innerOptions = "" }) => {
   return (
     <div
       className={`${fullScreen && "h-full"} flex items-center justify-center`}
