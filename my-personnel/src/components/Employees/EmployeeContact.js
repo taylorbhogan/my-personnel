@@ -1,10 +1,9 @@
 import { useState } from "react";
 import InfoField from "../AppUtils/InfoField";
+import Form from "../AppUtils/Form";
 import Input from "../AppUtils/Input";
-import ButtonEdit from "../AppUtils/ButtonEdit";
-import ButtonSubmit from "../AppUtils/ButtonSubmit";
-import ButtonClose from "../AppUtils/ButtonClose";
 import FlexCol from "../AppUtils/FlexCol";
+import Button from "../AppUtils/Button";
 
 const Contact = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -47,8 +46,8 @@ const Contact = ({ employee, employees, setEmployees }) => {
     <div>
       <h3 className="text-2xl pb-3">Contact</h3>
       {isEditable ? (
-        <form className="flex items-center" onSubmit={handleSubmit}>
-          <div className="flex basis-5/6">
+        <Form onSubmit={handleSubmit} flip={true}>
+          <div className="flex flex-col basis-5/6">
             <FlexCol>
               <Input
                 value={phonePersonal}
@@ -74,10 +73,15 @@ const Contact = ({ employee, employees, setEmployees }) => {
             />
           </div>
           <FlexCol options={"basis-1/6"}>
-            <ButtonClose setFunction={setIsEditable} />
-            <ButtonSubmit text={"Save"} width={"w-full"} />
+            <Button
+              options={"mb-3"}
+              text={"Close"}
+              color={"gray"}
+              onClick={() => setIsEditable(false)}
+            />
+            <Button text={"Save"} options={"w-full"} type={"submit"} />
           </FlexCol>
-        </form>
+        </Form>
       ) : (
         <div className="flex">
           <div className="flex basis-5/6">
@@ -95,9 +99,9 @@ const Contact = ({ employee, employees, setEmployees }) => {
               <InfoField label={"Email: "} value={employee.email} />
             </div>
           </div>
-          <div className="basis-1/6">
-            <ButtonEdit setIsEditable={setIsEditable} />
-          </div>
+          <FlexCol options={"basis-1/6"}>
+            <Button onClick={() => setIsEditable(true)} text={"edit"} />
+          </FlexCol>
         </div>
       )}
     </div>

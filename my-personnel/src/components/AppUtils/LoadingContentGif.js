@@ -1,6 +1,6 @@
 import loadingCircle from "../../images/loading-rotating.gif";
 
-const LoadingContent = () => {
+const LoadingContentGif = () => {
   return (
     <div
     className="flex justify-center"
@@ -13,4 +13,4 @@ const LoadingContent = () => {
   );
 };
 
-export default LoadingContent;
+export default LoadingContentGif;

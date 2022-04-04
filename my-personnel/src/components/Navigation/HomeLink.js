@@ -9,7 +9,6 @@ const HomeLink = () => {
     <div>
       <Link
         to={"/"}
-        className="absolute top-0 left-0 m-6"
         onMouseEnter={() => setHomeHover(true)}
         onMouseLeave={() => setHomeHover(false)}
       >

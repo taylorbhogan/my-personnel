@@ -1,3 +1,5 @@
+export const INPUT_ATTRIBUTES = "my-4 py-1 px-2 leading-10 bg-sky-100 rounded basis-full"
+
 const Input = ({
   type = "text",
   value,
@@ -8,14 +10,14 @@ const Input = ({
   required = false,
   autoFocus = false,
 }) => {
-  const inputClassName = "m-4 py-1 px-2 leading-10 bg-sky-100"
 
   if (showLabel) {
     return (
-      <label>
-        <span>{labelOverrideText ?? `${name}:`}</span>
+      <>
+        <label htmlFor={name} className="basis-full">{labelOverrideText ?? `${name}:`}</label>
         <input
           type={type}
+          id={name}
           name={name}
           placeholder={name}
           aria-label={name}
@@ -23,9 +25,9 @@ const Input = ({
           onChange={onChange}
           required={required}
           autoFocus={autoFocus}
-          className={inputClassName}
+          className={INPUT_ATTRIBUTES}
         ></input>
-      </label>
+      </>
     );
   } else {
     return (
@@ -38,7 +40,7 @@ const Input = ({
         onChange={onChange}
         required={required}
         autoFocus={autoFocus}
-        className={inputClassName}
+        className={INPUT_ATTRIBUTES}
       ></input>
     );
   }

@@ -1,11 +1,11 @@
 import { useState } from "react";
-import ButtonEdit from "../AppUtils/ButtonEdit";
 import Input from "../AppUtils/Input";
 import InfoField from "../AppUtils/InfoField";
 import DropdownDepartment from "../Departments/DepartmentDropdown";
-import ButtonSubmit from "../AppUtils/ButtonSubmit";
-import ButtonClose from "../AppUtils/ButtonClose";
 import FlexCol from "../AppUtils/FlexCol";
+import InputBundler from "../AppUtils/InputBundler";
+import Form from "../AppUtils/Form";
+import Button from "../AppUtils/Button";
 
 const Corporate = ({ employee, employees, setEmployees }) => {
   const [isEditable, setIsEditable] = useState(false);
@@ -53,30 +53,38 @@ const Corporate = ({ employee, employees, setEmployees }) => {
   return (
     <div className="">
       {isEditable ? (
-        <form className="flex" onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} flip={true}>
           <FlexCol options={"basis-5/6"}>
-            <Input
-              value={firstName}
-              name={"First Name"}
-              onChange={(e) => setFirstName(e.target.value)}
-              showLabel={true}
-              required={true}
-              autoFocus={true}
-            />
-            <Input
-              value={middleName}
-              name={"Middle Name"}
-              onChange={(e) => setMiddleName(e.target.value)}
-              showLabel={true}
-              required={true}
-            />
-            <Input
-              value={lastName}
-              name={"Last Name"}
-              onChange={(e) => setLastName(e.target.value)}
-              showLabel={true}
-              required={true}
-            />
+            <InputBundler>
+              <FlexCol options={"basis-full"}>
+                <Input
+                  value={firstName}
+                  name={"First Name"}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  showLabel={true}
+                  required={true}
+                  autoFocus={true}
+                />
+              </FlexCol>
+              <FlexCol options={"basis-full"}>
+                <Input
+                  value={middleName}
+                  name={"Middle Name"}
+                  onChange={(e) => setMiddleName(e.target.value)}
+                  showLabel={true}
+                  required={true}
+                />
+              </FlexCol>
+              <FlexCol options={"basis-full"}>
+                <Input
+                  value={lastName}
+                  name={"Last Name"}
+                  onChange={(e) => setLastName(e.target.value)}
+                  showLabel={true}
+                  required={true}
+                />
+              </FlexCol>
+            </InputBundler>
             <Input
               value={title}
               name={"Title"}
@@ -84,29 +92,33 @@ const Corporate = ({ employee, employees, setEmployees }) => {
               showLabel={true}
               required={true}
             />
-            <label className="m-4">
-              <span>Admin?</span>
-              <input
-                type={"checkbox"}
-                checked={isAdmin}
-                name={"isAdmin"}
-                onChange={(e) => setIsAdmin(e.target.checked)}
-                className="m-2"
-              ></input>
-            </label>
-            <label>
-              <span>Department:</span>
+            <div className="basis-full flex items-center">
+              <label className="m-4 basis-full">
+                <span>Admin?</span>
+                <input
+                  type={"checkbox"}
+                  checked={isAdmin}
+                  name={"isAdmin"}
+                  onChange={(e) => setIsAdmin(e.target.checked)}
+                  className="m-2"
+                ></input>
+              </label>
               <DropdownDepartment
                 value={department}
                 setFunction={(department) => setDepartment(department)}
               />
-            </label>
+            </div>
           </FlexCol>
           <FlexCol options={"basis-1/6"}>
-            <ButtonClose setFunction={setIsEditable} />
-            <ButtonSubmit text={"Save"} width={"w-full"} />
+            <Button
+              options={"mb-3"}
+              text={"Close"}
+              color={"gray"}
+              onClick={() => setIsEditable(false)}
+            />
+            <Button text={"Save"} options={"w-full"} type={"submit"} />
           </FlexCol>
-        </form>
+        </Form>
       ) : (
         <div className="flex">
           <div className="basis-5/6">
@@ -117,9 +129,9 @@ const Corporate = ({ employee, employees, setEmployees }) => {
             <p className="text-xl">{employee.department}</p>
             <InfoField label={"EmployeeId: "} value={employee._id} />
           </div>
-          <div className="basis-1/6">
-            <ButtonEdit setIsEditable={setIsEditable} />
-          </div>
+          <FlexCol options={"basis-1/6"}>
+            <Button onClick={() => setIsEditable(true)} text={"edit"} />
+          </FlexCol>
         </div>
       )}
     </div>

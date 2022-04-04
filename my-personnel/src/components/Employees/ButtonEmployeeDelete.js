@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ButtonCloseX from "../AppUtils/ButtonCloseX";
+import ButtonX from "../AppUtils/ButtonX";
 import { Modal } from "../../context/Modal";
 import FlexCol from "../AppUtils/FlexCol";
+import Button from "../AppUtils/Button";
 
 const ButtonEmployeeDelete = ({ id, employees, setEmployees }) => {
   const [showModal, setShowModal] = useState(false);
@@ -37,23 +38,25 @@ const ButtonEmployeeDelete = ({ id, employees, setEmployees }) => {
 
   return (
     <>
-      <button
+      <Button
         onClick={handleOpen}
-        className="border-2 rounded-lg px-3 py-1 border-red-700 hover:bg-red-700 hover:text-black"
-      >
-        Delete employee record
-      </button>
+        text={"Delete employee record"}
+        color={"red"}
+      />
+
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <FlexCol options={"items-center justify-around bg-gray-100 rounded-lg p-48"}>
-            <ButtonCloseX setFunction={setShowModal} />
+          <FlexCol
+            options={"items-center justify-around bg-gray-100 rounded-lg p-48"}
+          >
+            <ButtonX setFunction={setShowModal} />
             <h2>Deleting is permanent. Are you sure you'd like to proceed?</h2>
-            <button
+            <Button
               onClick={handleDelete}
-              className="border-2 rounded-lg mt-6 px-3 py-1 border-red-700 hover:bg-red-700 hover:text-black"
-            >
-              confirm delete
-            </button>
+              text={"confirm delete"}
+              color={"red"}
+              options={"mt-6"}
+            />
           </FlexCol>
         </Modal>
       )}

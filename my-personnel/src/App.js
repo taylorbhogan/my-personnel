@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Employees from "./components/Employees/Employees";
 import Employee from "./components/Employees/Employee";
 import Login from "./components/Auth/Login";
+import Signup from "./components/Auth/Signup";
 
 import PageNotFound from "./components/AppUtils/PageNotFound";
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
         <Route
           path="/employees"
           element={
